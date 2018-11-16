@@ -31,8 +31,8 @@ use Aspose\Storage\Api;
     {
         if(self::$accessToken === ''){
             $grantType = "client_credentials";
-            $clientId = "84220e69-32e2-41c4-ba2f-662a0a01433e";
-            $clientSecret = "883dc8d6b8ecd879dae35cb363e9eb56";
+            $clientId = "xxxxxxxx";
+            $clientSecret = "xxxxxx";
             $api = new OAuthApi();
             $config = $api->getConfig();
             $config->setHost('https://api.aspose.cloud');
@@ -46,8 +46,8 @@ use Aspose\Storage\Api;
      public static function upload($localFilePath,$filename , $folder, $storageName = null)
      {
          $config=new \Aspose\Storage\Configuration();
-         $config->setAppSid("84220e69-32e2-41c4-ba2f-662a0a01433e");
-         $config->setAppKey("883dc8d6b8ecd879dae35cb363e9eb56");
+         $config->setAppSid("xxxxxxxx");
+         $config->setAppKey("xxxxxx");
          $storage = new Api\StorageApi($config);
 
          $fullName=$folder . "/" .  $filename;
