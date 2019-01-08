@@ -1,6 +1,6 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
-    "version": "18.11",
+    "name": "aspose/diagram-sdk-php",
+    "version": "18.10",
     "description": "A PHP library for communicating with the Aspose.Diagram Cloud API",
     "keywords": ["aspose", "php", "diagram", "aspose cloud" ],
     "homepage": "https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php",
