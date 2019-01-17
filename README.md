@@ -64,7 +64,6 @@ Class | Method | HTTP request | Description
 *DiagramFileApi* | [**diagramFilePutUpload**](docs/Api/DiagramFileApi.md#diagramfileputupload) | **PUT** /diagram/{name}/upload | Upload file and save result to storage.
 *OAuthApi* | [**oAuthPost**](docs/Api/OAuthApi.md#oauthpost) | **POST** /oauth2/token | Get Access token
 
-
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
@@ -101,8 +100,4 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: signature
 - **Location**: URL query string
-
-
-
-
 
