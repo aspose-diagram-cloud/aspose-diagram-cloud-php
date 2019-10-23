@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * FilesList
  *
  * PHP version 5
  *
@@ -33,23 +33,24 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * FilesList Class Doc Comment
  *
  * @category Class
+ * @description Files list
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class FilesList implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'FilesList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'value' => '\Aspose\Diagram\Cloud\Model\StorageFile[]'
     ];
 
     /**
@@ -66,7 +67,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'value' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'value' => 'Value'
     ];
 
     /**
@@ -105,7 +106,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +115,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,10 +178,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -207,6 +205,30 @@ class SaaSposeResponse implements  ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets value
+     *
+     * @return \Aspose\Diagram\Cloud\Model\StorageFile[]
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param \Aspose\Diagram\Cloud\Model\StorageFile[] $value Files and folders contained by folder StorageFile.
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

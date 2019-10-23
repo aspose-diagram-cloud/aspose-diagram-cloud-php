@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * CreateNewResponse
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * CreateNewResponse Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class CreateNewResponse extends SaaSposeResponse 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'CreateNewResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'created' => 'string'
     ];
 
     /**
@@ -66,7 +64,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'created' => null
     ];
 
     /**
@@ -76,7 +74,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +84,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +94,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'created' => 'Created'
     ];
 
     /**
@@ -105,7 +103,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'created' => 'setCreated'
     ];
 
     /**
@@ -114,7 +112,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'created' => 'getCreated'
     ];
 
     /**
@@ -125,7 +123,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +133,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +143,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +160,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +169,9 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
     }
 
     /**
@@ -190,7 +181,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -203,10 +194,37 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets created
+     *
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->container['created'];
+    }
+
+    /**
+     * Sets created
+     *
+     * @param string $created created
+     *
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->container['created'] = $created;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

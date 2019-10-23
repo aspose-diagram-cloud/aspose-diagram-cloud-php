@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * RenderingSaveOptions
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * RenderingSaveOptions Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class RenderingSaveOptions extends SaveOptionsModel 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'RenderingSaveOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,10 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'area' => '\Aspose\Diagram\Cloud\Model\RectangleF',
+        'export_guide_shapes' => 'bool',
+        'page_size' => '\Aspose\Diagram\Cloud\Model\PageSize',
+        'is_export_comments' => 'bool'
     ];
 
     /**
@@ -66,7 +67,10 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'area' => null,
+        'export_guide_shapes' => null,
+        'page_size' => null,
+        'is_export_comments' => null
     ];
 
     /**
@@ -76,7 +80,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +90,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +100,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'area' => 'Area',
+        'export_guide_shapes' => 'ExportGuideShapes',
+        'page_size' => 'PageSize',
+        'is_export_comments' => 'IsExportComments'
     ];
 
     /**
@@ -105,7 +112,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'area' => 'setArea',
+        'export_guide_shapes' => 'setExportGuideShapes',
+        'page_size' => 'setPageSize',
+        'is_export_comments' => 'setIsExportComments'
     ];
 
     /**
@@ -114,7 +124,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'area' => 'getArea',
+        'export_guide_shapes' => 'getExportGuideShapes',
+        'page_size' => 'getPageSize',
+        'is_export_comments' => 'getIsExportComments'
     ];
 
     /**
@@ -125,7 +138,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +148,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +158,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +175,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +184,12 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['area'] = isset($data['area']) ? $data['area'] : null;
+        $this->container['export_guide_shapes'] = isset($data['export_guide_shapes']) ? $data['export_guide_shapes'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['is_export_comments'] = isset($data['is_export_comments']) ? $data['is_export_comments'] : null;
     }
 
     /**
@@ -190,8 +199,11 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['area'] === null) {
+            $invalidProperties[] = "'area' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,10 +215,112 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
+        if ($this->container['area'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets area
+     *
+     * @return \Aspose\Diagram\Cloud\Model\RectangleF
+     */
+    public function getArea()
+    {
+        return $this->container['area'];
+    }
+
+    /**
+     * Sets area
+     *
+     * @param \Aspose\Diagram\Cloud\Model\RectangleF $area area
+     *
+     * @return $this
+     */
+    public function setArea($area)
+    {
+        $this->container['area'] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_guide_shapes
+     *
+     * @return bool
+     */
+    public function getExportGuideShapes()
+    {
+        return $this->container['export_guide_shapes'];
+    }
+
+    /**
+     * Sets export_guide_shapes
+     *
+     * @param bool $export_guide_shapes export_guide_shapes
+     *
+     * @return $this
+     */
+    public function setExportGuideShapes($export_guide_shapes)
+    {
+        $this->container['export_guide_shapes'] = $export_guide_shapes;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_size
+     *
+     * @return \Aspose\Diagram\Cloud\Model\PageSize
+     */
+    public function getPageSize()
+    {
+        return $this->container['page_size'];
+    }
+
+    /**
+     * Sets page_size
+     *
+     * @param \Aspose\Diagram\Cloud\Model\PageSize $page_size page_size
+     *
+     * @return $this
+     */
+    public function setPageSize($page_size)
+    {
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_export_comments
+     *
+     * @return bool
+     */
+    public function getIsExportComments()
+    {
+        return $this->container['is_export_comments'];
+    }
+
+    /**
+     * Sets is_export_comments
+     *
+     * @param bool $is_export_comments is_export_comments
+     *
+     * @return $this
+     */
+    public function setIsExportComments($is_export_comments)
+    {
+        $this->container['is_export_comments'] = $is_export_comments;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

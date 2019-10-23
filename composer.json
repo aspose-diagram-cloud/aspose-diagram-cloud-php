@@ -1,6 +1,6 @@
 {
     "name": "aspose/diagram-sdk-php",
-    "version": "18.10",
+    "version": "19.10",
     "description": "A PHP library for communicating with the Aspose.Diagram Cloud API",
     "keywords": ["aspose", "php", "diagram", "aspose cloud" ],
     "homepage": "https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php",
@@ -17,7 +17,6 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^6.2",
-		"aspose/storage-sdk-php": "18.*",
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "require-dev": {

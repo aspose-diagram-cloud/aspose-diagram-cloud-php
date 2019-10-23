@@ -1,103 +1,99 @@
-# Aspose.Diagram.Cloud
-## Requirements
+[Aspose.Diagram Cloud](https://products.aspose.cloud/Diagram) helps you develop diagrams manipulation applications. Our REST API based Diagram Cloud SDK allows your applications to work with Microsoft Visio Object Model. 
 
-PHP 5.5 and later
+This repository contains Aspose.Diagram Cloud SDK source code. This SDK allows you to work with Aspose.Diagram Cloud REST APIs in your applications quickly and easily, with zero initial cost.
 
-## Installation & Usage
-### Composer
-diagram-sdk-php is available on Packagist as the diagram-sdk-php package. Run the following command:
-```bash
-composer require aspose/diagram-sdk-php
+To use this SDK, you will need App SID and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
+
+
+# Features
+
+### Support Import Formats  
+* VSDX
+* VDX
+* VSD
+* VSX
+* VTX
+* VSSX
+* VSTX
+* VSDM
+* VSSM
+* VSTM
+* VDW
+* VSS
+* VST
+
+### Support Export Formats  
+* VSDX
+* VDX
+* VSX
+* VTX
+* VSSX
+* VSTX
+* VSDM
+* VSSM
+* VSTM
+* PDF
+* XPS
+* SWF
+* SVG
+* EMF
+* JPEG
+* PNG
+* BMP
+* TIFF
+* HTML
+
+### Supported Operations
+* Convert document format
+* Create new document
+* Upload document and save it with supported format
+* Download document with supported format 
+
+For the complete list of use-cases, please refer to [common operations format support map](https://docs.aspose.cloud/display/diagramcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap) to see what you can achieve!
+
+
+# Storage API support
+#### Since version 19.10, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
+
+It gives you an ability to:
+* Upload, download, copy, move and delete files, including versions handling (if you are using Cloud storage that supports this feature - true by default)
+* Create, copy, move and delete folders
+* Copy and move files and folders accross separate storages in scope of a single operation
+* Check if certain file, folder or storage exists
+
+# Usage
+Please, add the following [NuGet package](https://www.nuget.org/packages/Aspose.Diagram-Cloud/) to your project.
+
+# Examples
+Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
+
+### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
+Starting from v19.10, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
+The details about key differences and deployment process will be described on the dedicated Docker Hub page as soon as it's released.
+
+To succeed with your on-premise service usage by the SDK, you need to:
+1. Use the new API class constructor with grantType parameter, clientId and clientSecret parameters.
 ```
-
-To use the SDK, use Composer's autoload:
-```php
-require_once('vendor/autoload.php');
+$diagramApi = new DiagramApi(self::$grantType,self::$clientId,self::$clientSecret);
 ```
+2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
-## Tests
+# Tests
+Tests are intended for internal usage only.
 
-To run the unit tests:
+# Licensing
+All Aspose.Diagram Cloud SDKs, helper scripts and templates are licensed under [MIT License](LICENSE).
 
-```
-composer install
-./vendor/bin/phpunit
-```
+# Contact Us
+Your feedback is very important to us. Please feel free to contact via
++ [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
++ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
 
-## Getting Started
-
-Please follow the [installation procedure](#installation--usage) and then run the following:
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$apiInstance = new Aspose\Diagram\Cloud\Api\DiagramFileApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$name = "name_example"; // string | The document name.
-$format = "format_example"; // string | The exported file format.
-$folder = "folder_example"; // string | The document folder.
-$storage = "storage_example"; // string | storage name.
-
-try {
-    $result = $apiInstance->diagramFileGetDiagram($name, $format, $folder, $storage);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DiagramFileApi->diagramFileGetDiagram: ', $e->getMessage(), PHP_EOL;
-}
-
-?>
-```
-
-## Documentation for API Endpoints
-
-All URIs are relative to *https://api.aspose.cloud/v1.1/*
-
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*DiagramFileApi* | [**diagramFileGetDiagram**](docs/Api/DiagramFileApi.md#diagramfilegetdiagram) | **GET** /diagram/{name} | Read document info or export.
-*DiagramFileApi* | [**diagramFilePostSaveAs**](docs/Api/DiagramFileApi.md#diagramfilepostsaveas) | **POST** /diagram/{name}/SaveAs | Convert document and save result to storage.
-*DiagramFileApi* | [**diagramFilePutCreate**](docs/Api/DiagramFileApi.md#diagramfileputcreate) | **PUT** /diagram/{name} | Create new diagram and save result to storage.
-*DiagramFileApi* | [**diagramFilePutUpload**](docs/Api/DiagramFileApi.md#diagramfileputupload) | **PUT** /diagram/{name}/upload | Upload file and save result to storage.
-*OAuthApi* | [**oAuthPost**](docs/Api/OAuthApi.md#oauthpost) | **POST** /oauth2/token | Get Access token
-
-## Documentation For Models
-
- - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
- - [DiagramModel](docs/Model/DiagramModel.md)
- - [FileFormatRequest](docs/Model/FileFormatRequest.md)
- - [Link](docs/Model/Link.md)
- - [PageModel](docs/Model/PageModel.md)
- - [SaaSposeResponse](docs/Model/SaaSposeResponse.md)
- - [SaveResult](docs/Model/SaveResult.md)
- - [SharpModel](docs/Model/SharpModel.md)
- - [DiagramResponse](docs/Model/DiagramResponse.md)
- - [SaveResponse](docs/Model/SaveResponse.md)
-
-
-## Documentation For Authorization
-
-
-## appsid
-
-- **Type**: API key
-- **API key parameter name**: appsid
-- **Location**: URL query string
-
-## oauth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: 
-- **Scopes**: 
- - **write:pets**: modify pets in your account
-
-## signature
-
-- **Type**: API key
-- **API key parameter name**: signature
-- **Location**: URL query string
-
+# Resources
++ [**Website**](https://www.aspose.cloud)
++ [**Product Home**](https://products.aspose.cloud/diagram)
++ [**Documentation**](https://docs.aspose.cloud/display/diagramcloud/Home)
++ [**API Reference**](https://apireference.aspose.cloud/diagram/)
++ [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
++ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
++ [**Blog**](https://blog.aspose.cloud/category/diagram/

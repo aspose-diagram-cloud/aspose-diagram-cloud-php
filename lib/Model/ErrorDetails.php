@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * ErrorDetails
  *
  * PHP version 5
  *
@@ -33,23 +33,24 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * ErrorDetails Class Doc Comment
  *
  * @category Class
+ * @description The error details
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class ErrorDetails implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'ErrorDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'request_id' => 'string',
+        'date' => '\DateTime'
     ];
 
     /**
@@ -66,7 +68,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'request_id' => null,
+        'date' => 'date-time'
     ];
 
     /**
@@ -96,7 +99,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'request_id' => 'RequestId',
+        'date' => 'Date'
     ];
 
     /**
@@ -105,7 +109,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'request_id' => 'setRequestId',
+        'date' => 'setDate'
     ];
 
     /**
@@ -114,7 +119,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'request_id' => 'getRequestId',
+        'date' => 'getDate'
     ];
 
     /**
@@ -177,10 +183,8 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['request_id'] = isset($data['request_id']) ? $data['request_id'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
     }
 
     /**
@@ -192,6 +196,9 @@ class SaaSposeResponse implements  ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['date'] === null) {
+            $invalidProperties[] = "'date' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,9 +211,60 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        if ($this->container['date'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets request_id
+     *
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return $this->container['request_id'];
+    }
+
+    /**
+     * Sets request_id
+     *
+     * @param string $request_id The request id
+     *
+     * @return $this
+     */
+    public function setRequestId($request_id)
+    {
+        $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime $date Date
+     *
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

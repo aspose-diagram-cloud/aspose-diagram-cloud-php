@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * SaveAsResponse
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * SaveAsResponse Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class SaveAsResponse extends SaaSposeResponse 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'SaveAsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'source_file' => 'string',
+        'saved_file' => 'string',
+        'additionals' => 'string[]'
     ];
 
     /**
@@ -66,7 +66,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'source_file' => null,
+        'saved_file' => null,
+        'additionals' => null
     ];
 
     /**
@@ -76,7 +78,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +88,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +98,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'source_file' => 'SourceFile',
+        'saved_file' => 'SavedFile',
+        'additionals' => 'Additionals'
     ];
 
     /**
@@ -105,7 +109,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'source_file' => 'setSourceFile',
+        'saved_file' => 'setSavedFile',
+        'additionals' => 'setAdditionals'
     ];
 
     /**
@@ -114,7 +120,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'source_file' => 'getSourceFile',
+        'saved_file' => 'getSavedFile',
+        'additionals' => 'getAdditionals'
     ];
 
     /**
@@ -125,7 +133,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +143,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +153,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +170,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +179,11 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['source_file'] = isset($data['source_file']) ? $data['source_file'] : null;
+        $this->container['saved_file'] = isset($data['saved_file']) ? $data['saved_file'] : null;
+        $this->container['additionals'] = isset($data['additionals']) ? $data['additionals'] : null;
     }
 
     /**
@@ -190,7 +193,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -203,10 +206,85 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets source_file
+     *
+     * @return string
+     */
+    public function getSourceFile()
+    {
+        return $this->container['source_file'];
+    }
+
+    /**
+     * Sets source_file
+     *
+     * @param string $source_file source_file
+     *
+     * @return $this
+     */
+    public function setSourceFile($source_file)
+    {
+        $this->container['source_file'] = $source_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets saved_file
+     *
+     * @return string
+     */
+    public function getSavedFile()
+    {
+        return $this->container['saved_file'];
+    }
+
+    /**
+     * Sets saved_file
+     *
+     * @param string $saved_file saved_file
+     *
+     * @return $this
+     */
+    public function setSavedFile($saved_file)
+    {
+        $this->container['saved_file'] = $saved_file;
+
+        return $this;
+    }
+
+    /**
+     * Gets additionals
+     *
+     * @return string[]
+     */
+    public function getAdditionals()
+    {
+        return $this->container['additionals'];
+    }
+
+    /**
+     * Sets additionals
+     *
+     * @param string[] $additionals additionals
+     *
+     * @return $this
+     */
+    public function setAdditionals($additionals)
+    {
+        $this->container['additionals'] = $additionals;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

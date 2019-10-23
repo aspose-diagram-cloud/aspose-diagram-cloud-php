@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * PdfDigitalSignatureDetails
  *
  * PHP version 5
  *
@@ -33,23 +33,23 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * PdfDigitalSignatureDetails Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class PdfDigitalSignatureDetails implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'PdfDigitalSignatureDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'signature_date' => '\DateTime',
+        'reason' => 'string',
+        'location' => 'string',
+        'hash_algorithm' => 'string'
     ];
 
     /**
@@ -66,7 +69,10 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'signature_date' => 'date-time',
+        'reason' => null,
+        'location' => null,
+        'hash_algorithm' => null
     ];
 
     /**
@@ -96,7 +102,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'signature_date' => 'SignatureDate',
+        'reason' => 'Reason',
+        'location' => 'Location',
+        'hash_algorithm' => 'HashAlgorithm'
     ];
 
     /**
@@ -105,7 +114,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'signature_date' => 'setSignatureDate',
+        'reason' => 'setReason',
+        'location' => 'setLocation',
+        'hash_algorithm' => 'setHashAlgorithm'
     ];
 
     /**
@@ -114,7 +126,10 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'signature_date' => 'getSignatureDate',
+        'reason' => 'getReason',
+        'location' => 'getLocation',
+        'hash_algorithm' => 'getHashAlgorithm'
     ];
 
     /**
@@ -158,8 +173,29 @@ class SaaSposeResponse implements  ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const HASH_ALGORITHM_SHA1 = 'Sha1';
+    const HASH_ALGORITHM_SHA256 = 'Sha256';
+    const HASH_ALGORITHM_SHA384 = 'Sha384';
+    const HASH_ALGORITHM_SHA512 = 'Sha512';
+    const HASH_ALGORITHM_MD5 = 'Md5';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getHashAlgorithmAllowableValues()
+    {
+        return [
+            self::HASH_ALGORITHM_SHA1,
+            self::HASH_ALGORITHM_SHA256,
+            self::HASH_ALGORITHM_SHA384,
+            self::HASH_ALGORITHM_SHA512,
+            self::HASH_ALGORITHM_MD5,
+        ];
+    }
     
 
     /**
@@ -177,10 +213,10 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['signature_date'] = isset($data['signature_date']) ? $data['signature_date'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
+        $this->container['hash_algorithm'] = isset($data['hash_algorithm']) ? $data['hash_algorithm'] : null;
     }
 
     /**
@@ -191,6 +227,14 @@ class SaaSposeResponse implements  ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if (!in_array($this->container['hash_algorithm'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'hash_algorithm', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -204,9 +248,118 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if (!in_array($this->container['hash_algorithm'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets signature_date
+     *
+     * @return \DateTime
+     */
+    public function getSignatureDate()
+    {
+        return $this->container['signature_date'];
+    }
+
+    /**
+     * Sets signature_date
+     *
+     * @param \DateTime $signature_date signature_date
+     *
+     * @return $this
+     */
+    public function setSignatureDate($signature_date)
+    {
+        $this->container['signature_date'] = $signature_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string $reason reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->container['location'];
+    }
+
+    /**
+     * Sets location
+     *
+     * @param string $location location
+     *
+     * @return $this
+     */
+    public function setLocation($location)
+    {
+        $this->container['location'] = $location;
+
+        return $this;
+    }
+
+    /**
+     * Gets hash_algorithm
+     *
+     * @return string
+     */
+    public function getHashAlgorithm()
+    {
+        return $this->container['hash_algorithm'];
+    }
+
+    /**
+     * Sets hash_algorithm
+     *
+     * @param string $hash_algorithm hash_algorithm
+     *
+     * @return $this
+     */
+    public function setHashAlgorithm($hash_algorithm)
+    {
+        $allowedValues = $this->getHashAlgorithmAllowableValues();
+        if (!is_null($hash_algorithm) && !in_array($hash_algorithm, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'hash_algorithm', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['hash_algorithm'] = $hash_algorithm;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

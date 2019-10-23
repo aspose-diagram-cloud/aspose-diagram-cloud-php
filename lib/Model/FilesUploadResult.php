@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * FilesUploadResult
  *
  * PHP version 5
  *
@@ -33,23 +33,24 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * FilesUploadResult Class Doc Comment
  *
  * @category Class
+ * @description File upload result
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class FilesUploadResult implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'FilesUploadResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'uploaded' => 'string[]',
+        'errors' => '\Aspose\Diagram\Cloud\Model\Error[]'
     ];
 
     /**
@@ -66,7 +68,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'uploaded' => null,
+        'errors' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'uploaded' => 'Uploaded',
+        'errors' => 'Errors'
     ];
 
     /**
@@ -105,7 +109,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'uploaded' => 'setUploaded',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -114,7 +119,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'uploaded' => 'getUploaded',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -177,10 +183,8 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['uploaded'] = isset($data['uploaded']) ? $data['uploaded'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -207,6 +211,54 @@ class SaaSposeResponse implements  ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets uploaded
+     *
+     * @return string[]
+     */
+    public function getUploaded()
+    {
+        return $this->container['uploaded'];
+    }
+
+    /**
+     * Sets uploaded
+     *
+     * @param string[] $uploaded List of uploaded file names
+     *
+     * @return $this
+     */
+    public function setUploaded($uploaded)
+    {
+        $this->container['uploaded'] = $uploaded;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \Aspose\Diagram\Cloud\Model\Error[]
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \Aspose\Diagram\Cloud\Model\Error[] $errors List of errors.
+     *
+     * @return $this
+     */
+    public function setErrors($errors)
+    {
+        $this->container['errors'] = $errors;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * FileVersion
  *
  * PHP version 5
  *
@@ -28,28 +28,27 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * FileVersion Class Doc Comment
  *
  * @category Class
+ * @description File Version
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class FileVersion extends StorageFile 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'FileVersion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'version_id' => 'string',
+        'is_latest' => 'bool'
     ];
 
     /**
@@ -66,7 +66,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'version_id' => null,
+        'is_latest' => null
     ];
 
     /**
@@ -76,7 +77,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +87,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +97,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'version_id' => 'VersionId',
+        'is_latest' => 'IsLatest'
     ];
 
     /**
@@ -105,7 +107,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'version_id' => 'setVersionId',
+        'is_latest' => 'setIsLatest'
     ];
 
     /**
@@ -114,7 +117,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'version_id' => 'getVersionId',
+        'is_latest' => 'getIsLatest'
     ];
 
     /**
@@ -125,7 +129,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +139,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +149,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +166,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +175,10 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['version_id'] = isset($data['version_id']) ? $data['version_id'] : null;
+        $this->container['is_latest'] = isset($data['is_latest']) ? $data['is_latest'] : null;
     }
 
     /**
@@ -190,8 +188,11 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['is_latest'] === null) {
+            $invalidProperties[] = "'is_latest' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,10 +204,64 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
+        if ($this->container['is_latest'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets version_id
+     *
+     * @return string
+     */
+    public function getVersionId()
+    {
+        return $this->container['version_id'];
+    }
+
+    /**
+     * Sets version_id
+     *
+     * @param string $version_id File Version ID.
+     *
+     * @return $this
+     */
+    public function setVersionId($version_id)
+    {
+        $this->container['version_id'] = $version_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_latest
+     *
+     * @return bool
+     */
+    public function getIsLatest()
+    {
+        return $this->container['is_latest'];
+    }
+
+    /**
+     * Sets is_latest
+     *
+     * @param bool $is_latest Specifies whether the file is (true) or is not (false) the latest version of an file.
+     *
+     * @return $this
+     */
+    public function setIsLatest($is_latest)
+    {
+        $this->container['is_latest'] = $is_latest;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

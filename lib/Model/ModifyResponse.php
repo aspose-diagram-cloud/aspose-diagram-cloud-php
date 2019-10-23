@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * ModifyResponse
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * ModifyResponse Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class ModifyResponse extends SaaSposeResponse 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'ModifyResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'is_success' => 'bool',
+        'message' => 'string'
     ];
 
     /**
@@ -66,7 +65,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'is_success' => null,
+        'message' => null
     ];
 
     /**
@@ -76,7 +76,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +86,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +96,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'is_success' => 'IsSuccess',
+        'message' => 'Message'
     ];
 
     /**
@@ -105,7 +106,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'is_success' => 'setIsSuccess',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -114,7 +116,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'is_success' => 'getIsSuccess',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -125,7 +128,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +138,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +148,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +165,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +174,10 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['is_success'] = isset($data['is_success']) ? $data['is_success'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -190,8 +187,11 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['is_success'] === null) {
+            $invalidProperties[] = "'is_success' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,10 +203,64 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
+        if ($this->container['is_success'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets is_success
+     *
+     * @return bool
+     */
+    public function getIsSuccess()
+    {
+        return $this->container['is_success'];
+    }
+
+    /**
+     * Sets is_success
+     *
+     * @param bool $is_success is_success
+     *
+     * @return $this
+     */
+    public function setIsSuccess($is_success)
+    {
+        $this->container['is_success'] = $is_success;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

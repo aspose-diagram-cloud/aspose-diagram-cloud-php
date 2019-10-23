@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * SaveOptionsModel
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * SaveOptionsModel Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class SaveOptionsModel implements  ArrayAccess
 {
     const DISCRIMINATOR = 'Type';
 
@@ -49,7 +49,7 @@ class SaaSposeResponse implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'SaveOptionsModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'save_format' => 'string',
+        'default_font' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'save_format' => null,
+        'default_font' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'save_format' => 'SaveFormat',
+        'default_font' => 'DefaultFont'
     ];
 
     /**
@@ -105,7 +108,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'save_format' => 'setSaveFormat',
+        'default_font' => 'setDefaultFont'
     ];
 
     /**
@@ -114,7 +118,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'save_format' => 'getSaveFormat',
+        'default_font' => 'getDefaultFont'
     ];
 
     /**
@@ -158,8 +163,61 @@ class SaaSposeResponse implements  ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const SAVE_FORMAT_VDX = 'VDX';
+    const SAVE_FORMAT_VSX = 'VSX';
+    const SAVE_FORMAT_VTX = 'VTX';
+    const SAVE_FORMAT_TIFF = 'TIFF';
+    const SAVE_FORMAT_PNG = 'PNG';
+    const SAVE_FORMAT_BMP = 'BMP';
+    const SAVE_FORMAT_EMF = 'EMF';
+    const SAVE_FORMAT_JPEG = 'JPEG';
+    const SAVE_FORMAT_PDF = 'PDF';
+    const SAVE_FORMAT_XPS = 'XPS';
+    const SAVE_FORMAT_GIF = 'GIF';
+    const SAVE_FORMAT_HTML = 'HTML';
+    const SAVE_FORMAT_SVG = 'SVG';
+    const SAVE_FORMAT_SWF = 'SWF';
+    const SAVE_FORMAT_XAML = 'XAML';
+    const SAVE_FORMAT_VSDX = 'VSDX';
+    const SAVE_FORMAT_VSTX = 'VSTX';
+    const SAVE_FORMAT_VSSX = 'VSSX';
+    const SAVE_FORMAT_VSDM = 'VSDM';
+    const SAVE_FORMAT_VSSM = 'VSSM';
+    const SAVE_FORMAT_VSTM = 'VSTM';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSaveFormatAllowableValues()
+    {
+        return [
+            self::SAVE_FORMAT_VDX,
+            self::SAVE_FORMAT_VSX,
+            self::SAVE_FORMAT_VTX,
+            self::SAVE_FORMAT_TIFF,
+            self::SAVE_FORMAT_PNG,
+            self::SAVE_FORMAT_BMP,
+            self::SAVE_FORMAT_EMF,
+            self::SAVE_FORMAT_JPEG,
+            self::SAVE_FORMAT_PDF,
+            self::SAVE_FORMAT_XPS,
+            self::SAVE_FORMAT_GIF,
+            self::SAVE_FORMAT_HTML,
+            self::SAVE_FORMAT_SVG,
+            self::SAVE_FORMAT_SWF,
+            self::SAVE_FORMAT_XAML,
+            self::SAVE_FORMAT_VSDX,
+            self::SAVE_FORMAT_VSTX,
+            self::SAVE_FORMAT_VSSX,
+            self::SAVE_FORMAT_VSDM,
+            self::SAVE_FORMAT_VSSM,
+            self::SAVE_FORMAT_VSTM,
+        ];
+    }
     
 
     /**
@@ -177,6 +235,8 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['save_format'] = isset($data['save_format']) ? $data['save_format'] : null;
+        $this->container['default_font'] = isset($data['default_font']) ? $data['default_font'] : null;
 
         // Initialize discriminator property with the model name.
         $discriminator = array_search('Type', self::$attributeMap);
@@ -192,6 +252,17 @@ class SaaSposeResponse implements  ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['save_format'] === null) {
+            $invalidProperties[] = "'save_format' can't be null";
+        }
+        $allowedValues = $this->getSaveFormatAllowableValues();
+        if (!in_array($this->container['save_format'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'save_format', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -204,9 +275,73 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        if ($this->container['save_format'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getSaveFormatAllowableValues();
+        if (!in_array($this->container['save_format'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets save_format
+     *
+     * @return string
+     */
+    public function getSaveFormat()
+    {
+        return $this->container['save_format'];
+    }
+
+    /**
+     * Sets save_format
+     *
+     * @param string $save_format save_format
+     *
+     * @return $this
+     */
+    public function setSaveFormat($save_format)
+    {
+        $allowedValues = $this->getSaveFormatAllowableValues();
+        if (!in_array($save_format, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'save_format', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['save_format'] = $save_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_font
+     *
+     * @return string
+     */
+    public function getDefaultFont()
+    {
+        return $this->container['default_font'];
+    }
+
+    /**
+     * Sets default_font
+     *
+     * @param string $default_font default_font
+     *
+     * @return $this
+     */
+    public function setDefaultFont($default_font)
+    {
+        $this->container['default_font'] = $default_font;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

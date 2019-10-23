@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * StorageExist
  *
  * PHP version 5
  *
@@ -33,23 +33,24 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * StorageExist Class Doc Comment
  *
  * @category Class
+ * @description Storage exists
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class StorageExist implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'StorageExist';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'exists' => 'bool'
     ];
 
     /**
@@ -66,7 +67,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'exists' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'exists' => 'Exists'
     ];
 
     /**
@@ -105,7 +106,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'exists' => 'setExists'
     ];
 
     /**
@@ -114,7 +115,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'exists' => 'getExists'
     ];
 
     /**
@@ -177,10 +178,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
     }
 
     /**
@@ -192,6 +190,9 @@ class SaaSposeResponse implements  ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['exists'] === null) {
+            $invalidProperties[] = "'exists' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,9 +205,36 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        if ($this->container['exists'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets exists
+     *
+     * @return bool
+     */
+    public function getExists()
+    {
+        return $this->container['exists'];
+    }
+
+    /**
+     * Sets exists
+     *
+     * @param bool $exists Shows that the storage exists.
+     *
+     * @return $this
+     */
+    public function setExists($exists)
+    {
+        $this->container['exists'] = $exists;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * PointF
  *
  * PHP version 5
  *
@@ -33,23 +33,23 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * PointF Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class PointF implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'PointF';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'is_empty' => 'bool',
+        'x' => 'double',
+        'y' => 'double'
     ];
 
     /**
@@ -66,7 +68,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'is_empty' => null,
+        'x' => 'double',
+        'y' => 'double'
     ];
 
     /**
@@ -96,7 +100,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'is_empty' => 'IsEmpty',
+        'x' => 'X',
+        'y' => 'Y'
     ];
 
     /**
@@ -105,7 +111,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'is_empty' => 'setIsEmpty',
+        'x' => 'setX',
+        'y' => 'setY'
     ];
 
     /**
@@ -114,7 +122,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'is_empty' => 'getIsEmpty',
+        'x' => 'getX',
+        'y' => 'getY'
     ];
 
     /**
@@ -177,10 +187,9 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['is_empty'] = isset($data['is_empty']) ? $data['is_empty'] : null;
+        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
+        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
     }
 
     /**
@@ -192,6 +201,15 @@ class SaaSposeResponse implements  ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['is_empty'] === null) {
+            $invalidProperties[] = "'is_empty' can't be null";
+        }
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,9 +222,90 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        if ($this->container['is_empty'] === null) {
+            return false;
+        }
+        if ($this->container['x'] === null) {
+            return false;
+        }
+        if ($this->container['y'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets is_empty
+     *
+     * @return bool
+     */
+    public function getIsEmpty()
+    {
+        return $this->container['is_empty'];
+    }
+
+    /**
+     * Sets is_empty
+     *
+     * @param bool $is_empty is_empty
+     *
+     * @return $this
+     */
+    public function setIsEmpty($is_empty)
+    {
+        $this->container['is_empty'] = $is_empty;
+
+        return $this;
+    }
+
+    /**
+     * Gets x
+     *
+     * @return double
+     */
+    public function getX()
+    {
+        return $this->container['x'];
+    }
+
+    /**
+     * Sets x
+     *
+     * @param double $x x
+     *
+     * @return $this
+     */
+    public function setX($x)
+    {
+        $this->container['x'] = $x;
+
+        return $this;
+    }
+
+    /**
+     * Gets y
+     *
+     * @return double
+     */
+    public function getY()
+    {
+        return $this->container['y'];
+    }
+
+    /**
+     * Sets y
+     *
+     * @param double $y y
+     *
+     * @return $this
+     */
+    public function setY($y)
+    {
+        $this->container['y'] = $y;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

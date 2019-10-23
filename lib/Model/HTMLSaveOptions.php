@@ -1,6 +1,6 @@
 <?php
 /**
- * AccessTokenResponse
+ * HTMLSaveOptions
  *
  * PHP version 5
  *
@@ -28,19 +28,17 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * AccessTokenResponse Class Doc Comment
+ * HTMLSaveOptions Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccessTokenResponse implements  ArrayAccess
+class HTMLSaveOptions extends RenderingSaveOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +47,7 @@ class AccessTokenResponse implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AccessTokenResponse';
+    protected static $swaggerModelName = 'HTMLSaveOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +55,12 @@ class AccessTokenResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        '_expires' => 'string',
-        'access_token' => 'string',
-        '_issued' => 'string',
-        'client_refresh_token_life_time_in_minutes' => 'string',
-        'expires_in' => 'int',
-        'token_type' => 'string',
-        'client_id' => 'string',
-        'refresh_token' => 'string'
+        'page_count' => 'int',
+        'save_tool_bar' => 'bool',
+        'export_hidden_page' => 'bool',
+        'page_index' => 'int',
+        'save_foreground_pages_only' => 'bool',
+        'title' => 'string'
     ];
 
     /**
@@ -73,14 +69,12 @@ class AccessTokenResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        '_expires' => null,
-        'access_token' => null,
-        '_issued' => null,
-        'client_refresh_token_life_time_in_minutes' => null,
-        'expires_in' => 'int64',
-        'token_type' => null,
-        'client_id' => null,
-        'refresh_token' => null
+        'page_count' => 'int32',
+        'save_tool_bar' => null,
+        'export_hidden_page' => null,
+        'page_index' => 'int32',
+        'save_foreground_pages_only' => null,
+        'title' => null
     ];
 
     /**
@@ -90,7 +84,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -100,7 +94,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -110,14 +104,12 @@ class AccessTokenResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        '_expires' => '.expires',
-        'access_token' => 'access_token',
-        '_issued' => '.issued',
-        'client_refresh_token_life_time_in_minutes' => 'clientRefreshTokenLifeTimeInMinutes',
-        'expires_in' => 'expires_in',
-        'token_type' => 'token_type',
-        'client_id' => 'client_id',
-        'refresh_token' => 'refresh_token'
+        'page_count' => 'PageCount',
+        'save_tool_bar' => 'SaveToolBar',
+        'export_hidden_page' => 'ExportHiddenPage',
+        'page_index' => 'PageIndex',
+        'save_foreground_pages_only' => 'SaveForegroundPagesOnly',
+        'title' => 'Title'
     ];
 
     /**
@@ -126,14 +118,12 @@ class AccessTokenResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        '_expires' => 'setExpires',
-        'access_token' => 'setAccessToken',
-        '_issued' => 'setIssued',
-        'client_refresh_token_life_time_in_minutes' => 'setClientRefreshTokenLifeTimeInMinutes',
-        'expires_in' => 'setExpiresIn',
-        'token_type' => 'setTokenType',
-        'client_id' => 'setClientId',
-        'refresh_token' => 'setRefreshToken'
+        'page_count' => 'setPageCount',
+        'save_tool_bar' => 'setSaveToolBar',
+        'export_hidden_page' => 'setExportHiddenPage',
+        'page_index' => 'setPageIndex',
+        'save_foreground_pages_only' => 'setSaveForegroundPagesOnly',
+        'title' => 'setTitle'
     ];
 
     /**
@@ -142,14 +132,12 @@ class AccessTokenResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        '_expires' => 'getExpires',
-        'access_token' => 'getAccessToken',
-        '_issued' => 'getIssued',
-        'client_refresh_token_life_time_in_minutes' => 'getClientRefreshTokenLifeTimeInMinutes',
-        'expires_in' => 'getExpiresIn',
-        'token_type' => 'getTokenType',
-        'client_id' => 'getClientId',
-        'refresh_token' => 'getRefreshToken'
+        'page_count' => 'getPageCount',
+        'save_tool_bar' => 'getSaveToolBar',
+        'export_hidden_page' => 'getExportHiddenPage',
+        'page_index' => 'getPageIndex',
+        'save_foreground_pages_only' => 'getSaveForegroundPagesOnly',
+        'title' => 'getTitle'
     ];
 
     /**
@@ -160,7 +148,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -170,7 +158,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -180,7 +168,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -197,12 +185,6 @@ class AccessTokenResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -212,14 +194,14 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['_expires'] = isset($data['_expires']) ? $data['_expires'] : null;
-        $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
-        $this->container['_issued'] = isset($data['_issued']) ? $data['_issued'] : null;
-        $this->container['client_refresh_token_life_time_in_minutes'] = isset($data['client_refresh_token_life_time_in_minutes']) ? $data['client_refresh_token_life_time_in_minutes'] : null;
-        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
-        $this->container['token_type'] = isset($data['token_type']) ? $data['token_type'] : null;
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;
+        parent::__construct($data);
+
+        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
+        $this->container['save_tool_bar'] = isset($data['save_tool_bar']) ? $data['save_tool_bar'] : null;
+        $this->container['export_hidden_page'] = isset($data['export_hidden_page']) ? $data['export_hidden_page'] : null;
+        $this->container['page_index'] = isset($data['page_index']) ? $data['page_index'] : null;
+        $this->container['save_foreground_pages_only'] = isset($data['save_foreground_pages_only']) ? $data['save_foreground_pages_only'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
     }
 
     /**
@@ -229,7 +211,7 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -242,199 +224,154 @@ class AccessTokenResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /**
-     * Gets _expires
-     *
-     * @return string
-     */
-    public function getExpires()
-    {
-        return $this->container['_expires'];
-    }
-
-    /**
-     * Sets _expires
-     *
-     * @param string $_expires _expires
-     *
-     * @return $this
-     */
-    public function setExpires($_expires)
-    {
-        $this->container['_expires'] = $_expires;
-
-        return $this;
-    }
-
-    /**
-     * Gets access_token
-     *
-     * @return string
-     */
-    public function getAccessToken()
-    {
-        return $this->container['access_token'];
-    }
-
-    /**
-     * Sets access_token
-     *
-     * @param string $access_token access_token
-     *
-     * @return $this
-     */
-    public function setAccessToken($access_token)
-    {
-        $this->container['access_token'] = $access_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets _issued
-     *
-     * @return string
-     */
-    public function getIssued()
-    {
-        return $this->container['_issued'];
-    }
-
-    /**
-     * Sets _issued
-     *
-     * @param string $_issued _issued
-     *
-     * @return $this
-     */
-    public function setIssued($_issued)
-    {
-        $this->container['_issued'] = $_issued;
-
-        return $this;
-    }
-
-    /**
-     * Gets client_refresh_token_life_time_in_minutes
-     *
-     * @return string
-     */
-    public function getClientRefreshTokenLifeTimeInMinutes()
-    {
-        return $this->container['client_refresh_token_life_time_in_minutes'];
-    }
-
-    /**
-     * Sets client_refresh_token_life_time_in_minutes
-     *
-     * @param string $client_refresh_token_life_time_in_minutes client_refresh_token_life_time_in_minutes
-     *
-     * @return $this
-     */
-    public function setClientRefreshTokenLifeTimeInMinutes($client_refresh_token_life_time_in_minutes)
-    {
-        $this->container['client_refresh_token_life_time_in_minutes'] = $client_refresh_token_life_time_in_minutes;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_in
+     * Gets page_count
      *
      * @return int
      */
-    public function getExpiresIn()
+    public function getPageCount()
     {
-        return $this->container['expires_in'];
+        return $this->container['page_count'];
     }
 
     /**
-     * Sets expires_in
+     * Sets page_count
      *
-     * @param int $expires_in expires_in
+     * @param int $page_count page_count
      *
      * @return $this
      */
-    public function setExpiresIn($expires_in)
+    public function setPageCount($page_count)
     {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['page_count'] = $page_count;
 
         return $this;
     }
 
     /**
-     * Gets token_type
+     * Gets save_tool_bar
      *
-     * @return string
+     * @return bool
      */
-    public function getTokenType()
+    public function getSaveToolBar()
     {
-        return $this->container['token_type'];
+        return $this->container['save_tool_bar'];
     }
 
     /**
-     * Sets token_type
+     * Sets save_tool_bar
      *
-     * @param string $token_type token_type
+     * @param bool $save_tool_bar save_tool_bar
      *
      * @return $this
      */
-    public function setTokenType($token_type)
+    public function setSaveToolBar($save_tool_bar)
     {
-        $this->container['token_type'] = $token_type;
+        $this->container['save_tool_bar'] = $save_tool_bar;
 
         return $this;
     }
 
     /**
-     * Gets client_id
+     * Gets export_hidden_page
      *
-     * @return string
+     * @return bool
      */
-    public function getClientId()
+    public function getExportHiddenPage()
     {
-        return $this->container['client_id'];
+        return $this->container['export_hidden_page'];
     }
 
     /**
-     * Sets client_id
+     * Sets export_hidden_page
      *
-     * @param string $client_id client_id
+     * @param bool $export_hidden_page export_hidden_page
      *
      * @return $this
      */
-    public function setClientId($client_id)
+    public function setExportHiddenPage($export_hidden_page)
     {
-        $this->container['client_id'] = $client_id;
+        $this->container['export_hidden_page'] = $export_hidden_page;
 
         return $this;
     }
 
     /**
-     * Gets refresh_token
+     * Gets page_index
      *
-     * @return string
+     * @return int
      */
-    public function getRefreshToken()
+    public function getPageIndex()
     {
-        return $this->container['refresh_token'];
+        return $this->container['page_index'];
     }
 
     /**
-     * Sets refresh_token
+     * Sets page_index
      *
-     * @param string $refresh_token refresh_token
+     * @param int $page_index page_index
      *
      * @return $this
      */
-    public function setRefreshToken($refresh_token)
+    public function setPageIndex($page_index)
     {
-        $this->container['refresh_token'] = $refresh_token;
+        $this->container['page_index'] = $page_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets save_foreground_pages_only
+     *
+     * @return bool
+     */
+    public function getSaveForegroundPagesOnly()
+    {
+        return $this->container['save_foreground_pages_only'];
+    }
+
+    /**
+     * Sets save_foreground_pages_only
+     *
+     * @param bool $save_foreground_pages_only save_foreground_pages_only
+     *
+     * @return $this
+     */
+    public function setSaveForegroundPagesOnly($save_foreground_pages_only)
+    {
+        $this->container['save_foreground_pages_only'] = $save_foreground_pages_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string $title title
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
 
         return $this;
     }

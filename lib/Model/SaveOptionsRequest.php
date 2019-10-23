@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * SaveOptionsRequest
  *
  * PHP version 5
  *
@@ -33,23 +33,23 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * SaveOptionsRequest Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class SaveOptionsRequest implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'SaveOptionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'file_name' => 'string',
+        'folder' => 'string',
+        'save_options' => '\Aspose\Diagram\Cloud\Model\SaveOptionsModel'
     ];
 
     /**
@@ -66,7 +68,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'file_name' => null,
+        'folder' => null,
+        'save_options' => null
     ];
 
     /**
@@ -96,7 +100,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'file_name' => 'FileName',
+        'folder' => 'Folder',
+        'save_options' => 'SaveOptions'
     ];
 
     /**
@@ -105,7 +111,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'file_name' => 'setFileName',
+        'folder' => 'setFolder',
+        'save_options' => 'setSaveOptions'
     ];
 
     /**
@@ -114,7 +122,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'file_name' => 'getFileName',
+        'folder' => 'getFolder',
+        'save_options' => 'getSaveOptions'
     ];
 
     /**
@@ -177,10 +187,9 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['file_name'] = isset($data['file_name']) ? $data['file_name'] : null;
+        $this->container['folder'] = isset($data['folder']) ? $data['folder'] : null;
+        $this->container['save_options'] = isset($data['save_options']) ? $data['save_options'] : null;
     }
 
     /**
@@ -207,6 +216,78 @@ class SaaSposeResponse implements  ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets file_name
+     *
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string $file_name file_name
+     *
+     * @return $this
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets folder
+     *
+     * @return string
+     */
+    public function getFolder()
+    {
+        return $this->container['folder'];
+    }
+
+    /**
+     * Sets folder
+     *
+     * @param string $folder folder
+     *
+     * @return $this
+     */
+    public function setFolder($folder)
+    {
+        $this->container['folder'] = $folder;
+
+        return $this;
+    }
+
+    /**
+     * Gets save_options
+     *
+     * @return \Aspose\Diagram\Cloud\Model\SaveOptionsModel
+     */
+    public function getSaveOptions()
+    {
+        return $this->container['save_options'];
+    }
+
+    /**
+     * Sets save_options
+     *
+     * @param \Aspose\Diagram\Cloud\Model\SaveOptionsModel $save_options save_options
+     *
+     * @return $this
+     */
+    public function setSaveOptions($save_options)
+    {
+        $this->container['save_options'] = $save_options;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

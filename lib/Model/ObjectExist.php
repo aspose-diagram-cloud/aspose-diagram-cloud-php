@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * ObjectExist
  *
  * PHP version 5
  *
@@ -33,23 +33,24 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * ObjectExist Class Doc Comment
  *
  * @category Class
+ * @description Object exists
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class ObjectExist implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'ObjectExist';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'exists' => 'bool',
+        'is_folder' => 'bool'
     ];
 
     /**
@@ -66,7 +68,8 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'exists' => null,
+        'is_folder' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'exists' => 'Exists',
+        'is_folder' => 'IsFolder'
     ];
 
     /**
@@ -105,7 +109,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'exists' => 'setExists',
+        'is_folder' => 'setIsFolder'
     ];
 
     /**
@@ -114,7 +119,8 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'exists' => 'getExists',
+        'is_folder' => 'getIsFolder'
     ];
 
     /**
@@ -177,10 +183,8 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['exists'] = isset($data['exists']) ? $data['exists'] : null;
+        $this->container['is_folder'] = isset($data['is_folder']) ? $data['is_folder'] : null;
     }
 
     /**
@@ -192,6 +196,12 @@ class SaaSposeResponse implements  ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['exists'] === null) {
+            $invalidProperties[] = "'exists' can't be null";
+        }
+        if ($this->container['is_folder'] === null) {
+            $invalidProperties[] = "'is_folder' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,9 +214,63 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        if ($this->container['exists'] === null) {
+            return false;
+        }
+        if ($this->container['is_folder'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets exists
+     *
+     * @return bool
+     */
+    public function getExists()
+    {
+        return $this->container['exists'];
+    }
+
+    /**
+     * Sets exists
+     *
+     * @param bool $exists Indicates that the file or folder exists.
+     *
+     * @return $this
+     */
+    public function setExists($exists)
+    {
+        $this->container['exists'] = $exists;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_folder
+     *
+     * @return bool
+     */
+    public function getIsFolder()
+    {
+        return $this->container['is_folder'];
+    }
+
+    /**
+     * Sets is_folder
+     *
+     * @param bool $is_folder True if it is a folder, false if it is a file.
+     *
+     * @return $this
+     */
+    public function setIsFolder($is_folder)
+    {
+        $this->container['is_folder'] = $is_folder;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

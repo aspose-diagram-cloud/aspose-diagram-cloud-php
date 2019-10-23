@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * SVGSaveOptions
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * SVGSaveOptions Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class SVGSaveOptions extends RenderingSaveOptions 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'SVGSaveOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,11 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'export_hidden_page' => 'bool',
+        'quality' => 'int',
+        'page_index' => 'int',
+        'svg_fit_to_view_port' => 'bool',
+        'export_element_as_rect_tag' => 'bool'
     ];
 
     /**
@@ -66,7 +68,11 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'export_hidden_page' => null,
+        'quality' => 'int32',
+        'page_index' => 'int32',
+        'svg_fit_to_view_port' => null,
+        'export_element_as_rect_tag' => null
     ];
 
     /**
@@ -76,7 +82,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +92,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +102,11 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'export_hidden_page' => 'ExportHiddenPage',
+        'quality' => 'Quality',
+        'page_index' => 'PageIndex',
+        'svg_fit_to_view_port' => 'SVGFitToViewPort',
+        'export_element_as_rect_tag' => 'ExportElementAsRectTag'
     ];
 
     /**
@@ -105,7 +115,11 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'export_hidden_page' => 'setExportHiddenPage',
+        'quality' => 'setQuality',
+        'page_index' => 'setPageIndex',
+        'svg_fit_to_view_port' => 'setSvgFitToViewPort',
+        'export_element_as_rect_tag' => 'setExportElementAsRectTag'
     ];
 
     /**
@@ -114,7 +128,11 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'export_hidden_page' => 'getExportHiddenPage',
+        'quality' => 'getQuality',
+        'page_index' => 'getPageIndex',
+        'svg_fit_to_view_port' => 'getSvgFitToViewPort',
+        'export_element_as_rect_tag' => 'getExportElementAsRectTag'
     ];
 
     /**
@@ -125,7 +143,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +153,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +163,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +180,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +189,13 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['export_hidden_page'] = isset($data['export_hidden_page']) ? $data['export_hidden_page'] : null;
+        $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
+        $this->container['page_index'] = isset($data['page_index']) ? $data['page_index'] : null;
+        $this->container['svg_fit_to_view_port'] = isset($data['svg_fit_to_view_port']) ? $data['svg_fit_to_view_port'] : null;
+        $this->container['export_element_as_rect_tag'] = isset($data['export_element_as_rect_tag']) ? $data['export_element_as_rect_tag'] : null;
     }
 
     /**
@@ -190,7 +205,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -203,10 +218,133 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets export_hidden_page
+     *
+     * @return bool
+     */
+    public function getExportHiddenPage()
+    {
+        return $this->container['export_hidden_page'];
+    }
+
+    /**
+     * Sets export_hidden_page
+     *
+     * @param bool $export_hidden_page export_hidden_page
+     *
+     * @return $this
+     */
+    public function setExportHiddenPage($export_hidden_page)
+    {
+        $this->container['export_hidden_page'] = $export_hidden_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets quality
+     *
+     * @return int
+     */
+    public function getQuality()
+    {
+        return $this->container['quality'];
+    }
+
+    /**
+     * Sets quality
+     *
+     * @param int $quality quality
+     *
+     * @return $this
+     */
+    public function setQuality($quality)
+    {
+        $this->container['quality'] = $quality;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_index
+     *
+     * @return int
+     */
+    public function getPageIndex()
+    {
+        return $this->container['page_index'];
+    }
+
+    /**
+     * Sets page_index
+     *
+     * @param int $page_index page_index
+     *
+     * @return $this
+     */
+    public function setPageIndex($page_index)
+    {
+        $this->container['page_index'] = $page_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets svg_fit_to_view_port
+     *
+     * @return bool
+     */
+    public function getSvgFitToViewPort()
+    {
+        return $this->container['svg_fit_to_view_port'];
+    }
+
+    /**
+     * Sets svg_fit_to_view_port
+     *
+     * @param bool $svg_fit_to_view_port svg_fit_to_view_port
+     *
+     * @return $this
+     */
+    public function setSvgFitToViewPort($svg_fit_to_view_port)
+    {
+        $this->container['svg_fit_to_view_port'] = $svg_fit_to_view_port;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_element_as_rect_tag
+     *
+     * @return bool
+     */
+    public function getExportElementAsRectTag()
+    {
+        return $this->container['export_element_as_rect_tag'];
+    }
+
+    /**
+     * Sets export_element_as_rect_tag
+     *
+     * @param bool $export_element_as_rect_tag export_element_as_rect_tag
+     *
+     * @return $this
+     */
+    public function setExportElementAsRectTag($export_element_as_rect_tag)
+    {
+        $this->container['export_element_as_rect_tag'] = $export_element_as_rect_tag;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

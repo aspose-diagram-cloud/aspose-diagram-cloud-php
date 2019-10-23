@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * XAMLSaveOptions
  *
  * PHP version 5
  *
@@ -28,28 +28,26 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * XAMLSaveOptions Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class XAMLSaveOptions extends SaveOptionsModel 
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'XAMLSaveOptions';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +55,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'page_count' => 'int',
+        'page_index' => 'int',
+        'save_foreground_pages_only' => 'bool'
     ];
 
     /**
@@ -66,7 +66,9 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'page_count' => 'int32',
+        'page_index' => 'int32',
+        'save_foreground_pages_only' => null
     ];
 
     /**
@@ -76,7 +78,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +88,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,7 +98,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'page_count' => 'PageCount',
+        'page_index' => 'PageIndex',
+        'save_foreground_pages_only' => 'SaveForegroundPagesOnly'
     ];
 
     /**
@@ -105,7 +109,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'page_count' => 'setPageCount',
+        'page_index' => 'setPageIndex',
+        'save_foreground_pages_only' => 'setSaveForegroundPagesOnly'
     ];
 
     /**
@@ -114,7 +120,9 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'page_count' => 'getPageCount',
+        'page_index' => 'getPageIndex',
+        'save_foreground_pages_only' => 'getSaveForegroundPagesOnly'
     ];
 
     /**
@@ -125,7 +133,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +143,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +153,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -162,12 +170,6 @@ class SaaSposeResponse implements  ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -177,10 +179,11 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
+        $this->container['page_index'] = isset($data['page_index']) ? $data['page_index'] : null;
+        $this->container['save_foreground_pages_only'] = isset($data['save_foreground_pages_only']) ? $data['save_foreground_pages_only'] : null;
     }
 
     /**
@@ -190,7 +193,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -203,10 +206,85 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
+
+    /**
+     * Gets page_count
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->container['page_count'];
+    }
+
+    /**
+     * Sets page_count
+     *
+     * @param int $page_count page_count
+     *
+     * @return $this
+     */
+    public function setPageCount($page_count)
+    {
+        $this->container['page_count'] = $page_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_index
+     *
+     * @return int
+     */
+    public function getPageIndex()
+    {
+        return $this->container['page_index'];
+    }
+
+    /**
+     * Sets page_index
+     *
+     * @param int $page_index page_index
+     *
+     * @return $this
+     */
+    public function setPageIndex($page_index)
+    {
+        $this->container['page_index'] = $page_index;
+
+        return $this;
+    }
+
+    /**
+     * Gets save_foreground_pages_only
+     *
+     * @return bool
+     */
+    public function getSaveForegroundPagesOnly()
+    {
+        return $this->container['save_foreground_pages_only'];
+    }
+
+    /**
+     * Sets save_foreground_pages_only
+     *
+     * @param bool $save_foreground_pages_only save_foreground_pages_only
+     *
+     * @return $this
+     */
+    public function setSaveForegroundPagesOnly($save_foreground_pages_only)
+    {
+        $this->container['save_foreground_pages_only'] = $save_foreground_pages_only;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

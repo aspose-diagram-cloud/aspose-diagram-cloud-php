@@ -1,6 +1,6 @@
 <?php
 /**
- * SaaSposeResponse
+ * PageSize
  *
  * PHP version 5
  *
@@ -33,23 +33,23 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * SaaSposeResponse Class Doc Comment
+ * PageSize Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaaSposeResponse implements  ArrayAccess
+class PageSize implements  ArrayAccess
 {
-    const DISCRIMINATOR = 'Type';
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SaaSposeResponse';
+    protected static $swaggerModelName = 'PageSize';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'paper_size_format' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class SaaSposeResponse implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'paper_size_format' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'paper_size_format' => 'PaperSizeFormat'
     ];
 
     /**
@@ -105,7 +105,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'paper_size_format' => 'setPaperSizeFormat'
     ];
 
     /**
@@ -114,7 +114,7 @@ class SaaSposeResponse implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'paper_size_format' => 'getPaperSizeFormat'
     ];
 
     /**
@@ -158,8 +158,87 @@ class SaaSposeResponse implements  ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const PAPER_SIZE_FORMAT_CUSTOM = 'Custom';
+    const PAPER_SIZE_FORMAT_A0 = 'A0';
+    const PAPER_SIZE_FORMAT_A1 = 'A1';
+    const PAPER_SIZE_FORMAT_A2 = 'A2';
+    const PAPER_SIZE_FORMAT_A3 = 'A3';
+    const PAPER_SIZE_FORMAT_A4 = 'A4';
+    const PAPER_SIZE_FORMAT_A5 = 'A5';
+    const PAPER_SIZE_FORMAT_A6 = 'A6';
+    const PAPER_SIZE_FORMAT_A7 = 'A7';
+    const PAPER_SIZE_FORMAT_B0 = 'B0';
+    const PAPER_SIZE_FORMAT_B1 = 'B1';
+    const PAPER_SIZE_FORMAT_B2 = 'B2';
+    const PAPER_SIZE_FORMAT_B3 = 'B3';
+    const PAPER_SIZE_FORMAT_B4 = 'B4';
+    const PAPER_SIZE_FORMAT_B5 = 'B5';
+    const PAPER_SIZE_FORMAT_B6 = 'B6';
+    const PAPER_SIZE_FORMAT_B7 = 'B7';
+    const PAPER_SIZE_FORMAT_C0 = 'C0';
+    const PAPER_SIZE_FORMAT_C1 = 'C1';
+    const PAPER_SIZE_FORMAT_C2 = 'C2';
+    const PAPER_SIZE_FORMAT_C3 = 'C3';
+    const PAPER_SIZE_FORMAT_C4 = 'C4';
+    const PAPER_SIZE_FORMAT_C5 = 'C5';
+    const PAPER_SIZE_FORMAT_C6 = 'C6';
+    const PAPER_SIZE_FORMAT_C7 = 'C7';
+    const PAPER_SIZE_FORMAT_LETTER = 'Letter';
+    const PAPER_SIZE_FORMAT_LEGAL = 'Legal';
+    const PAPER_SIZE_FORMAT_LEGAL13 = 'Legal13';
+    const PAPER_SIZE_FORMAT_TABLOID = 'Tabloid';
+    const PAPER_SIZE_FORMAT_EXECUTIVE = 'Executive';
+    const PAPER_SIZE_FORMAT_DL = 'DL';
+    const PAPER_SIZE_FORMAT_COM9 = 'COM9';
+    const PAPER_SIZE_FORMAT_COM10 = 'COM10';
+    const PAPER_SIZE_FORMAT_MONARCH = 'Monarch';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPaperSizeFormatAllowableValues()
+    {
+        return [
+            self::PAPER_SIZE_FORMAT_CUSTOM,
+            self::PAPER_SIZE_FORMAT_A0,
+            self::PAPER_SIZE_FORMAT_A1,
+            self::PAPER_SIZE_FORMAT_A2,
+            self::PAPER_SIZE_FORMAT_A3,
+            self::PAPER_SIZE_FORMAT_A4,
+            self::PAPER_SIZE_FORMAT_A5,
+            self::PAPER_SIZE_FORMAT_A6,
+            self::PAPER_SIZE_FORMAT_A7,
+            self::PAPER_SIZE_FORMAT_B0,
+            self::PAPER_SIZE_FORMAT_B1,
+            self::PAPER_SIZE_FORMAT_B2,
+            self::PAPER_SIZE_FORMAT_B3,
+            self::PAPER_SIZE_FORMAT_B4,
+            self::PAPER_SIZE_FORMAT_B5,
+            self::PAPER_SIZE_FORMAT_B6,
+            self::PAPER_SIZE_FORMAT_B7,
+            self::PAPER_SIZE_FORMAT_C0,
+            self::PAPER_SIZE_FORMAT_C1,
+            self::PAPER_SIZE_FORMAT_C2,
+            self::PAPER_SIZE_FORMAT_C3,
+            self::PAPER_SIZE_FORMAT_C4,
+            self::PAPER_SIZE_FORMAT_C5,
+            self::PAPER_SIZE_FORMAT_C6,
+            self::PAPER_SIZE_FORMAT_C7,
+            self::PAPER_SIZE_FORMAT_LETTER,
+            self::PAPER_SIZE_FORMAT_LEGAL,
+            self::PAPER_SIZE_FORMAT_LEGAL13,
+            self::PAPER_SIZE_FORMAT_TABLOID,
+            self::PAPER_SIZE_FORMAT_EXECUTIVE,
+            self::PAPER_SIZE_FORMAT_DL,
+            self::PAPER_SIZE_FORMAT_COM9,
+            self::PAPER_SIZE_FORMAT_COM10,
+            self::PAPER_SIZE_FORMAT_MONARCH,
+        ];
+    }
     
 
     /**
@@ -177,10 +256,7 @@ class SaaSposeResponse implements  ArrayAccess
      */
     public function __construct(array $data = null)
     {
-
-        // Initialize discriminator property with the model name.
-        $discriminator = array_search('Type', self::$attributeMap);
-        $this->container[$discriminator] = static::$swaggerModelName;
+        $this->container['paper_size_format'] = isset($data['paper_size_format']) ? $data['paper_size_format'] : null;
     }
 
     /**
@@ -191,6 +267,14 @@ class SaaSposeResponse implements  ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getPaperSizeFormatAllowableValues();
+        if (!in_array($this->container['paper_size_format'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'paper_size_format', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -204,9 +288,46 @@ class SaaSposeResponse implements  ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getPaperSizeFormatAllowableValues();
+        if (!in_array($this->container['paper_size_format'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets paper_size_format
+     *
+     * @return string
+     */
+    public function getPaperSizeFormat()
+    {
+        return $this->container['paper_size_format'];
+    }
+
+    /**
+     * Sets paper_size_format
+     *
+     * @param string $paper_size_format paper_size_format
+     *
+     * @return $this
+     */
+    public function setPaperSizeFormat($paper_size_format)
+    {
+        $allowedValues = $this->getPaperSizeFormatAllowableValues();
+        if (!is_null($paper_size_format) && !in_array($paper_size_format, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'paper_size_format', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['paper_size_format'] = $paper_size_format;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
