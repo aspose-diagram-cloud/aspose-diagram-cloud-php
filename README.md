@@ -62,7 +62,7 @@ It gives you an ability to:
 * Check if certain file, folder or storage exists
 
 # Usage
-Please, add the following [packagist](hhttps://packagist.org/packages/aspose/diagram-sdk-php) to your project.
+Please, add the following [packagist](https://packagist.org/packages/aspose/diagram-sdk-php) to your project.
 
 ### Composer
 diagram-sdk-php is available on Packagist as the diagram-sdk-php package. Run the following command:
