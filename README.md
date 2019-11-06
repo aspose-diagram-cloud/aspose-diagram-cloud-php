@@ -61,6 +61,18 @@ It gives you an ability to:
 * Copy and move files and folders accross separate storages in scope of a single operation
 * Check if certain file, folder or storage exists
 
+## Installation & Usage
+### Composer
+diagram-sdk-php is available on Packagist as the diagram-sdk-php package. Run the following command:
+```bash
+composer require aspose/diagram-sdk-php
+```
+
+To use the SDK, use Composer's autoload:
+```php
+require_once('vendor/autoload.php');
+```
+
 # Examples
 Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
 
