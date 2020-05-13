@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * TextStyleData
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * TextStyleData Class Doc Comment
  *
  * @category Class
+ * @description Text style
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class TextStyleData implements  ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'TextStyleData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,10 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'color' => 'string',
+        'style' => 'string',
+        'font_name' => 'string',
+        'font_size' => 'double'
     ];
 
     /**
@@ -68,9 +70,10 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'color' => null,
+        'style' => null,
+        'font_name' => null,
+        'font_size' => 'double'
     ];
 
     /**
@@ -100,9 +103,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'color' => 'Color',
+        'style' => 'Style',
+        'font_name' => 'FontName',
+        'font_size' => 'FontSize'
     ];
 
     /**
@@ -111,9 +115,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'color' => 'setColor',
+        'style' => 'setStyle',
+        'font_name' => 'setFontName',
+        'font_size' => 'setFontSize'
     ];
 
     /**
@@ -122,9 +127,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'color' => 'getColor',
+        'style' => 'getStyle',
+        'font_name' => 'getFontName',
+        'font_size' => 'getFontSize'
     ];
 
     /**
@@ -168,8 +174,29 @@ class PointF implements  ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STYLE_BOLD = 'Bold';
+    const STYLE_ITALIC = 'Italic';
+    const STYLE_UNDERLINE = 'Underline';
+    const STYLE_SMALL_CAPS = 'SmallCaps';
+    const STYLE_UNDEFINED = 'Undefined';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStyleAllowableValues()
+    {
+        return [
+            self::STYLE_BOLD,
+            self::STYLE_ITALIC,
+            self::STYLE_UNDERLINE,
+            self::STYLE_SMALL_CAPS,
+            self::STYLE_UNDEFINED,
+        ];
+    }
     
 
     /**
@@ -179,12 +206,18 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['color'] = isset($data['color']) ? $data['color'] : null;
+        $this->container['style'] = isset($data['style']) ? $data['style'] : null;
+        $this->container['font_name'] = isset($data['font_name']) ? $data['font_name'] : null;
+        $this->container['font_size'] = isset($data['font_size']) ? $data['font_size'] : null;
     }
 
     /**
@@ -196,15 +229,17 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
+        if ($this->container['style'] === null) {
+            $invalidProperties[] = "'style' can't be null";
         }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'style', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -217,13 +252,11 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
+        if ($this->container['style'] === null) {
             return false;
         }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($this->container['style'], $allowedValues)) {
             return false;
         }
         return true;
@@ -231,73 +264,106 @@ class PointF implements  ArrayAccess
 
 
     /**
-     * Gets is_empty
+     * Gets color
      *
-     * @return bool
+     * @return string
      */
-    public function getIsEmpty()
+    public function getColor()
     {
-        return $this->container['is_empty'];
+        return $this->container['color'];
     }
 
     /**
-     * Sets is_empty
+     * Sets color
      *
-     * @param bool $is_empty is_empty
+     * @param string $color color
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setColor($color)
     {
-        $this->container['is_empty'] = $is_empty;
+        $this->container['color'] = $color;
 
         return $this;
     }
 
     /**
-     * Gets x
+     * Gets style
      *
-     * @return double
+     * @return string
      */
-    public function getX()
+    public function getStyle()
     {
-        return $this->container['x'];
+        return $this->container['style'];
     }
 
     /**
-     * Sets x
+     * Sets style
      *
-     * @param double $x x
+     * @param string $style style
      *
      * @return $this
      */
-    public function setX($x)
+    public function setStyle($style)
     {
-        $this->container['x'] = $x;
+        $allowedValues = $this->getStyleAllowableValues();
+        if (!in_array($style, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'style', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['style'] = $style;
 
         return $this;
     }
 
     /**
-     * Gets y
+     * Gets font_name
      *
-     * @return double
+     * @return string
      */
-    public function getY()
+    public function getFontName()
     {
-        return $this->container['y'];
+        return $this->container['font_name'];
     }
 
     /**
-     * Sets y
+     * Sets font_name
      *
-     * @param double $y y
+     * @param string $font_name font_name
      *
      * @return $this
      */
-    public function setY($y)
+    public function setFontName($font_name)
     {
-        $this->container['y'] = $y;
+        $this->container['font_name'] = $font_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets font_size
+     *
+     * @return double
+     */
+    public function getFontSize()
+    {
+        return $this->container['font_size'];
+    }
+
+    /**
+     * Sets font_size
+     *
+     * @param double $font_size font_size
+     *
+     * @return $this
+     */
+    public function setFontSize($font_size)
+    {
+        $this->container['font_size'] = $font_size;
 
         return $this;
     }
@@ -370,6 +436,7 @@ class PointF implements  ArrayAccess
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
 }
 
 

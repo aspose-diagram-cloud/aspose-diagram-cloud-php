@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * ShapeData
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * ShapeData Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class ShapeData implements  ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'ShapeData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'id' => 'int',
+        'pin_x' => 'double',
+        'pin_y' => 'double'
     ];
 
     /**
@@ -68,9 +68,9 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'id' => 'int64',
+        'pin_x' => 'double',
+        'pin_y' => 'double'
     ];
 
     /**
@@ -100,9 +100,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'id' => 'ID',
+        'pin_x' => 'PinX',
+        'pin_y' => 'PinY'
     ];
 
     /**
@@ -111,9 +111,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'id' => 'setId',
+        'pin_x' => 'setPinX',
+        'pin_y' => 'setPinY'
     ];
 
     /**
@@ -122,9 +122,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'id' => 'getId',
+        'pin_x' => 'getPinX',
+        'pin_y' => 'getPinY'
     ];
 
     /**
@@ -179,12 +179,17 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['pin_x'] = isset($data['pin_x']) ? $data['pin_x'] : null;
+        $this->container['pin_y'] = isset($data['pin_y']) ? $data['pin_y'] : null;
     }
 
     /**
@@ -196,14 +201,14 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
+        if ($this->container['pin_x'] === null) {
+            $invalidProperties[] = "'pin_x' can't be null";
         }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
+        if ($this->container['pin_y'] === null) {
+            $invalidProperties[] = "'pin_y' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,13 +222,13 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
+        if ($this->container['id'] === null) {
             return false;
         }
-        if ($this->container['x'] === null) {
+        if ($this->container['pin_x'] === null) {
             return false;
         }
-        if ($this->container['y'] === null) {
+        if ($this->container['pin_y'] === null) {
             return false;
         }
         return true;
@@ -231,73 +236,73 @@ class PointF implements  ArrayAccess
 
 
     /**
-     * Gets is_empty
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getIsEmpty()
+    public function getId()
     {
-        return $this->container['is_empty'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets is_empty
+     * Sets id
      *
-     * @param bool $is_empty is_empty
+     * @param int $id id
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setId($id)
     {
-        $this->container['is_empty'] = $is_empty;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets x
+     * Gets pin_x
      *
      * @return double
      */
-    public function getX()
+    public function getPinX()
     {
-        return $this->container['x'];
+        return $this->container['pin_x'];
     }
 
     /**
-     * Sets x
+     * Sets pin_x
      *
-     * @param double $x x
+     * @param double $pin_x pin_x
      *
      * @return $this
      */
-    public function setX($x)
+    public function setPinX($pin_x)
     {
-        $this->container['x'] = $x;
+        $this->container['pin_x'] = $pin_x;
 
         return $this;
     }
 
     /**
-     * Gets y
+     * Gets pin_y
      *
      * @return double
      */
-    public function getY()
+    public function getPinY()
     {
-        return $this->container['y'];
+        return $this->container['pin_y'];
     }
 
     /**
-     * Sets y
+     * Sets pin_y
      *
-     * @param double $y y
+     * @param double $pin_y pin_y
      *
      * @return $this
      */
-    public function setY($y)
+    public function setPinY($pin_y)
     {
-        $this->container['y'] = $y;
+        $this->container['pin_y'] = $pin_y;
 
         return $this;
     }

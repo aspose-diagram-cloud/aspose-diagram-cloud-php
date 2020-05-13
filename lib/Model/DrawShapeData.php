@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * DrawShapeData
  *
  * PHP version 5
  *
@@ -33,23 +33,23 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * DrawShapeData Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class DrawShapeData implements  ArrayAccess
 {
-    const DISCRIMINATOR = null;
+    const DISCRIMINATOR = 'Type';
 
     /**
       * The original name of the model.
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'DrawShapeData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,13 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'pin_x' => 'double',
+        'pin_y' => 'double',
+        'width' => 'double',
+        'height' => 'double',
+        'shape_style_data' => '\Aspose\Diagram\Cloud\Model\ShapeStyleData',
+        'text' => 'string',
+        'text_style_data' => '\Aspose\Diagram\Cloud\Model\TextStyleData'
     ];
 
     /**
@@ -68,9 +72,13 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'pin_x' => 'double',
+        'pin_y' => 'double',
+        'width' => 'double',
+        'height' => 'double',
+        'shape_style_data' => null,
+        'text' => null,
+        'text_style_data' => null
     ];
 
     /**
@@ -100,9 +108,13 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'pin_x' => 'PinX',
+        'pin_y' => 'PinY',
+        'width' => 'Width',
+        'height' => 'Height',
+        'shape_style_data' => 'ShapeStyleData',
+        'text' => 'Text',
+        'text_style_data' => 'TextStyleData'
     ];
 
     /**
@@ -111,9 +123,13 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'pin_x' => 'setPinX',
+        'pin_y' => 'setPinY',
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'shape_style_data' => 'setShapeStyleData',
+        'text' => 'setText',
+        'text_style_data' => 'setTextStyleData'
     ];
 
     /**
@@ -122,9 +138,13 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'pin_x' => 'getPinX',
+        'pin_y' => 'getPinY',
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'shape_style_data' => 'getShapeStyleData',
+        'text' => 'getText',
+        'text_style_data' => 'getTextStyleData'
     ];
 
     /**
@@ -179,12 +199,25 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
+        $this->container['pin_x'] = isset($data['pin_x']) ? $data['pin_x'] : null;
+        $this->container['pin_y'] = isset($data['pin_y']) ? $data['pin_y'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['shape_style_data'] = isset($data['shape_style_data']) ? $data['shape_style_data'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['text_style_data'] = isset($data['text_style_data']) ? $data['text_style_data'] : null;
 
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        // Initialize discriminator property with the model name.
+        $discriminator = array_search('Type', self::$attributeMap);
+        $this->container[$discriminator] = static::$swaggerModelName;
     }
 
     /**
@@ -196,14 +229,17 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
+        if ($this->container['pin_x'] === null) {
+            $invalidProperties[] = "'pin_x' can't be null";
         }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
+        if ($this->container['pin_y'] === null) {
+            $invalidProperties[] = "'pin_y' can't be null";
         }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
+        if ($this->container['width'] === null) {
+            $invalidProperties[] = "'width' can't be null";
+        }
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,13 +253,16 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
+        if ($this->container['pin_x'] === null) {
             return false;
         }
-        if ($this->container['x'] === null) {
+        if ($this->container['pin_y'] === null) {
             return false;
         }
-        if ($this->container['y'] === null) {
+        if ($this->container['width'] === null) {
+            return false;
+        }
+        if ($this->container['height'] === null) {
             return false;
         }
         return true;
@@ -231,73 +270,169 @@ class PointF implements  ArrayAccess
 
 
     /**
-     * Gets is_empty
+     * Gets pin_x
      *
-     * @return bool
+     * @return double
      */
-    public function getIsEmpty()
+    public function getPinX()
     {
-        return $this->container['is_empty'];
+        return $this->container['pin_x'];
     }
 
     /**
-     * Sets is_empty
+     * Sets pin_x
      *
-     * @param bool $is_empty is_empty
+     * @param double $pin_x pin_x
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setPinX($pin_x)
     {
-        $this->container['is_empty'] = $is_empty;
+        $this->container['pin_x'] = $pin_x;
 
         return $this;
     }
 
     /**
-     * Gets x
+     * Gets pin_y
      *
      * @return double
      */
-    public function getX()
+    public function getPinY()
     {
-        return $this->container['x'];
+        return $this->container['pin_y'];
     }
 
     /**
-     * Sets x
+     * Sets pin_y
      *
-     * @param double $x x
+     * @param double $pin_y pin_y
      *
      * @return $this
      */
-    public function setX($x)
+    public function setPinY($pin_y)
     {
-        $this->container['x'] = $x;
+        $this->container['pin_y'] = $pin_y;
 
         return $this;
     }
 
     /**
-     * Gets y
+     * Gets width
      *
      * @return double
      */
-    public function getY()
+    public function getWidth()
     {
-        return $this->container['y'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets y
+     * Sets width
      *
-     * @param double $y y
+     * @param double $width width
      *
      * @return $this
      */
-    public function setY($y)
+    public function setWidth($width)
     {
-        $this->container['y'] = $y;
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return double
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param double $height height
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets shape_style_data
+     *
+     * @return \Aspose\Diagram\Cloud\Model\ShapeStyleData
+     */
+    public function getShapeStyleData()
+    {
+        return $this->container['shape_style_data'];
+    }
+
+    /**
+     * Sets shape_style_data
+     *
+     * @param \Aspose\Diagram\Cloud\Model\ShapeStyleData $shape_style_data shape_style_data
+     *
+     * @return $this
+     */
+    public function setShapeStyleData($shape_style_data)
+    {
+        $this->container['shape_style_data'] = $shape_style_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_style_data
+     *
+     * @return \Aspose\Diagram\Cloud\Model\TextStyleData
+     */
+    public function getTextStyleData()
+    {
+        return $this->container['text_style_data'];
+    }
+
+    /**
+     * Sets text_style_data
+     *
+     * @param \Aspose\Diagram\Cloud\Model\TextStyleData $text_style_data text_style_data
+     *
+     * @return $this
+     */
+    public function setTextStyleData($text_style_data)
+    {
+        $this->container['text_style_data'] = $text_style_data;
 
         return $this;
     }

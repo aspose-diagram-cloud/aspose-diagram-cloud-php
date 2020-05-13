@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * PageData
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * PageData Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class PageData implements  ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'PageData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'id' => 'int',
+        'page_setting' => '\Aspose\Diagram\Cloud\Model\PageSetting',
+        'shapes' => '\Aspose\Diagram\Cloud\Model\ShapeData[]'
     ];
 
     /**
@@ -68,9 +68,9 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'id' => 'int32',
+        'page_setting' => null,
+        'shapes' => null
     ];
 
     /**
@@ -100,9 +100,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'id' => 'ID',
+        'page_setting' => 'PageSetting',
+        'shapes' => 'Shapes'
     ];
 
     /**
@@ -111,9 +111,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'id' => 'setId',
+        'page_setting' => 'setPageSetting',
+        'shapes' => 'setShapes'
     ];
 
     /**
@@ -122,9 +122,9 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'id' => 'getId',
+        'page_setting' => 'getPageSetting',
+        'shapes' => 'getShapes'
     ];
 
     /**
@@ -179,12 +179,17 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['page_setting'] = isset($data['page_setting']) ? $data['page_setting'] : null;
+        $this->container['shapes'] = isset($data['shapes']) ? $data['shapes'] : null;
     }
 
     /**
@@ -196,14 +201,8 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
-        }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,13 +216,7 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
-            return false;
-        }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
+        if ($this->container['id'] === null) {
             return false;
         }
         return true;
@@ -231,73 +224,73 @@ class PointF implements  ArrayAccess
 
 
     /**
-     * Gets is_empty
+     * Gets id
      *
-     * @return bool
+     * @return int
      */
-    public function getIsEmpty()
+    public function getId()
     {
-        return $this->container['is_empty'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets is_empty
+     * Sets id
      *
-     * @param bool $is_empty is_empty
+     * @param int $id Page Id
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setId($id)
     {
-        $this->container['is_empty'] = $is_empty;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets x
+     * Gets page_setting
      *
-     * @return double
+     * @return \Aspose\Diagram\Cloud\Model\PageSetting
      */
-    public function getX()
+    public function getPageSetting()
     {
-        return $this->container['x'];
+        return $this->container['page_setting'];
     }
 
     /**
-     * Sets x
+     * Sets page_setting
      *
-     * @param double $x x
+     * @param \Aspose\Diagram\Cloud\Model\PageSetting $page_setting page setting info
      *
      * @return $this
      */
-    public function setX($x)
+    public function setPageSetting($page_setting)
     {
-        $this->container['x'] = $x;
+        $this->container['page_setting'] = $page_setting;
 
         return $this;
     }
 
     /**
-     * Gets y
+     * Gets shapes
      *
-     * @return double
+     * @return \Aspose\Diagram\Cloud\Model\ShapeData[]
      */
-    public function getY()
+    public function getShapes()
     {
-        return $this->container['y'];
+        return $this->container['shapes'];
     }
 
     /**
-     * Sets y
+     * Sets shapes
      *
-     * @param double $y y
+     * @param \Aspose\Diagram\Cloud\Model\ShapeData[] $shapes shape list
      *
      * @return $this
      */
-    public function setY($y)
+    public function setShapes($shapes)
     {
-        $this->container['y'] = $y;
+        $this->container['shapes'] = $shapes;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * PageSetting
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * PageSetting Class Doc Comment
  *
  * @category Class
+ * @description page setting info
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class PageSetting implements  ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'PageSetting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,10 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'name' => 'string',
+        'name_u' => 'string',
+        'page_width' => 'double',
+        'page_height' => 'double'
     ];
 
     /**
@@ -68,9 +70,10 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'name' => null,
+        'name_u' => null,
+        'page_width' => 'double',
+        'page_height' => 'double'
     ];
 
     /**
@@ -100,9 +103,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'name' => 'Name',
+        'name_u' => 'NameU',
+        'page_width' => 'PageWidth',
+        'page_height' => 'PageHeight'
     ];
 
     /**
@@ -111,9 +115,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'name' => 'setName',
+        'name_u' => 'setNameU',
+        'page_width' => 'setPageWidth',
+        'page_height' => 'setPageHeight'
     ];
 
     /**
@@ -122,9 +127,10 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'name' => 'getName',
+        'name_u' => 'getNameU',
+        'page_width' => 'getPageWidth',
+        'page_height' => 'getPageHeight'
     ];
 
     /**
@@ -179,12 +185,18 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['name_u'] = isset($data['name_u']) ? $data['name_u'] : null;
+        $this->container['page_width'] = isset($data['page_width']) ? $data['page_width'] : null;
+        $this->container['page_height'] = isset($data['page_height']) ? $data['page_height'] : null;
     }
 
     /**
@@ -196,15 +208,6 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
-        }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -217,87 +220,102 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
-            return false;
-        }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets is_empty
+     * Gets name
      *
-     * @return bool
+     * @return string
      */
-    public function getIsEmpty()
+    public function getName()
     {
-        return $this->container['is_empty'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets is_empty
+     * Sets name
      *
-     * @param bool $is_empty is_empty
+     * @param string $name Page Name
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setName($name)
     {
-        $this->container['is_empty'] = $is_empty;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets x
+     * Gets name_u
      *
-     * @return double
+     * @return string
      */
-    public function getX()
+    public function getNameU()
     {
-        return $this->container['x'];
+        return $this->container['name_u'];
     }
 
     /**
-     * Sets x
+     * Sets name_u
      *
-     * @param double $x x
+     * @param string $name_u Page Name
      *
      * @return $this
      */
-    public function setX($x)
+    public function setNameU($name_u)
     {
-        $this->container['x'] = $x;
+        $this->container['name_u'] = $name_u;
 
         return $this;
     }
 
     /**
-     * Gets y
+     * Gets page_width
      *
      * @return double
      */
-    public function getY()
+    public function getPageWidth()
     {
-        return $this->container['y'];
+        return $this->container['page_width'];
     }
 
     /**
-     * Sets y
+     * Sets page_width
      *
-     * @param double $y y
+     * @param double $page_width Page Width
      *
      * @return $this
      */
-    public function setY($y)
+    public function setPageWidth($page_width)
     {
-        $this->container['y'] = $y;
+        $this->container['page_width'] = $page_width;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_height
+     *
+     * @return double
+     */
+    public function getPageHeight()
+    {
+        return $this->container['page_height'];
+    }
+
+    /**
+     * Sets page_height
+     *
+     * @param double $page_height Page Height
+     *
+     * @return $this
+     */
+    public function setPageHeight($page_height)
+    {
+        $this->container['page_height'] = $page_height;
 
         return $this;
     }

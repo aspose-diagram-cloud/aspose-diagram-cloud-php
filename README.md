@@ -1,110 +1,107 @@
-[Aspose.Diagram Cloud](https://products.aspose.cloud/Diagram) helps you develop diagrams manipulation applications. Our REST API based Diagram Cloud SDK allows your applications to work with Microsoft Visio Object Model. 
+# PHP Cloud REST API for Visio Processing
 
-This repository contains Aspose.Diagram Cloud SDK source code. This SDK allows you to work with Aspose.Diagram Cloud REST APIs in your applications quickly and easily, with zero initial cost.
+This cloud SDK enables your PHP cloud apps to [create & process Visio diagrams](https://products.aspose.cloud/diagram/net) from within your apps without installing Microsoft Visio.
 
-To use this SDK, you will need App SID and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/#/apps) (free registration in Aspose Cloud is required for this).
+## Visio Processing Features
 
+- Retrieve document information of a Visio diagram.
+- Programmatically create a new Microsoft Visio diagram file.
+- Convert Visio flow-charts to other supported formats.
+- Upload your business oriented Visio diagrams to cloud storage.
+- Export Visio files to raster images, fixed-layout and HTML formats.
 
-# Features
+## New Features in Version 20.3
 
-### Support Import Formats  
-* VSDX
-* VDX
-* VSD
-* VSX
-* VTX
-* VSSX
-* VSTX
-* VSDM
-* VSSM
-* VSTM
-* VDW
-* VSS
-* VST
+Added support to draw following objects on a page:
+- Polyline
+- Line
+- Ellipse
 
-### Support Export Formats  
-* VSDX
-* VDX
-* VSX
-* VTX
-* VSSX
-* VSTX
-* VSDM
-* VSSM
-* VSTM
-* PDF
-* XPS
-* SWF
-* SVG
-* EMF
-* JPEG
-* PNG
-* BMP
-* TIFF
-* HTML
+Added support to:
+- Set page setting  
+- Add new empty page
+- Get pages info
 
-### Supported Operations
-* Convert document format
-* Create new document
-* Upload document and save it with supported format
-* Download document with supported format 
+For the detailed notes, please visit [Aspose.Diagram Cloud 20.3 Release Notes](https://docs.aspose.cloud/display/diagramcloud/Aspose.Diagram+Cloud+20.3+Release+Notes).
 
-For the complete list of use-cases, please refer to [common operations format support map](https://docs.aspose.cloud/display/diagramcloud/Supported+File+Formats#SupportedFileFormats-CommonOperationsFormatSupportMap) to see what you can achieve!
+## Read & Write Visio Formats
 
+**Microsoft Visio:** VSDX, VSX, VTX, VDX, VSSX, VSTX, VSDM, VSSM, VSTM
 
-# Storage API support
-#### Since version 19.10, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
+## Save Visio As
 
-It gives you an ability to:
-* Upload, download, copy, move and delete files, including versions handling (if you are using Cloud storage that supports this feature - true by default)
-* Create, copy, move and delete folders
-* Copy and move files and folders accross separate storages in scope of a single operation
-* Check if certain file, folder or storage exists
+**Fixed Layout:** PDF, XPS
+**Images:** JPEG, PNG, BMP, TIFF, SVG, EMF
+**Web:** HTML
+**Other:** XAML, SWF
 
-# Usage
-Please, add the following [packagist](https://packagist.org/packages/aspose/diagram-sdk-php) to your project.
+## Read Visio Formats
 
-### Composer
-diagram-sdk-php is available on Packagist as the diagram-sdk-php package. Run the following command:
-```bash
+**Microsoft Visio:** VDW, VSD, VSS, VST
+
+## How to use the SDK
+
+The complete source code is available at the [GitHub Repository](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php). You can either directly use it in your project via source code or get [Packagist distribution](https://packagist.org/packages/aspose/diagram-sdk-php) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/diagramcloud/Home).
+
+## Prerequisites
+
+To use Aspose Cells Cloud SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+
+## Installation via Composer
+
+*diagram-sdk-php* is available on [Packagist](https://packagist.org/packages/aspose/diagram-sdk-php) as the `diagram-sdk-php` package. Run the following command:
+
+```console
 composer require aspose/diagram-sdk-php
 ```
 
-To use the SDK, use Composer's autoload:
+To use the SDK, use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloading):
+
 ```php
 require_once('vendor/autoload.php');
 ```
 
-# Examples
-Please, look at [Examples](EXAMPLES.md) document for basic usage or use the [Examples](Examples) folder for more sophisticated scenarios.
+## Examples
 
-### Aspose Cloud-hosted service VS on-premise deployment (*experimental feature*)
-Starting from v19.10, you can choose either to use Aspose Cloud-hosted image processing service (the standard way) or the Docker image from Docker Hub deployed on-premise to serve the requests.
-The details about key differences and deployment process will be described on the dedicated Docker Hub page as soon as it's released.
+Please, look at [Examples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php/blob/master/EXAMPLES.md) document for basic usage or use the [Examples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php/blob/master/Examples) folder for more sophisticated scenarios.
 
-To succeed with your on-premise service usage by the SDK, you need to:
-1. Use the new API class constructor with grantType parameter, clientId and clientSecret parameters.
+## Use PHP Code to Convert VDX Diagram to other Formats
+
+```php
+require_once(__DIR__ . '/vendor/autoload.php');
+require_once(__DIR__ . '/Utils.php');
+
+use Aspose\Diagram\Cloud\Api\DiagramFileApi;
+use \Aspose\Diagram\Cloud\Configuration;
+use \Aspose\Diagram\Cloud\Model;
+use \Aspose\Diagram\Cloud\ObjectSerializer;
+
+class DiagramFile {
+
+    public $diagramApi;
+
+    public function __construct() {
+        $this->diagramApi = new DiagramFileApi();
+        $config = $this->diagramApi->getConfig();
+        $token = Utils::getAccessToken();
+        $config ->setAccessToken($token);
+    }
+
+    public function saveFileAsAnotherFormat() {
+        $fileName ='file_get_1.vdx';
+        $isOverwrite = 'true';
+        $folder= "";
+        $format = new \Aspose\Diagram\Cloud\Model\FileFormatRequest();
+        $format->setFormat("pdf");
+        $newfilename = "file_saveas_php.pdf";
+        $result = $this->diagramApi->DiagramFilePostSaveAs($fileName, $format, $newfilename, $folder, $isOverwrite);
+        $json = json_decode($result);
+        print_r ( $json );
+    }
+}
+
+$diagramFile = new DiagramFile();
+$diagramFile->saveFileAsAnotherFormat();
 ```
-$diagramApi = new DiagramApi(self::$grantType,self::$clientId,self::$clientSecret);
-```
-2. Set *storage* or *storageName* parameters for each request where they're present (mandatory!).
 
-# Tests
-Tests are intended for internal usage only.
-
-# Licensing
-All Aspose.Diagram Cloud SDKs, helper scripts and templates are licensed under [MIT License](LICENSE).
-
-# Contact Us
-Your feedback is very important to us. Please feel free to contact via
-+ [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
-+ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-
-# Resources
-+ [**Website**](https://www.aspose.cloud)
-+ [**Product Home**](https://products.aspose.cloud/diagram)
-+ [**Documentation**](https://docs.aspose.cloud/display/diagramcloud/Home)
-+ [**API Reference**](https://apireference.aspose.cloud/diagram/)
-+ [**Free Support Forum**](https://forum.aspose.cloud/c/diagram)
-+ [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
-+ [**Blog**](https://blog.aspose.cloud/category/diagram/
+[Product Page](https://products.aspose.cloud/diagram/php) | [Documentation](https://docs.aspose.cloud/display/diagramcloud/Home) | [Live Demo](https://products.aspose.app/diagram/family) | [API Reference](https://apireference.aspose.cloud/diagram/) | [Code Samples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php) | [Blog](https://blog.aspose.cloud/category/diagram/) | [Free Support](https://forum.aspose.cloud/c/diagram) | [Free Trial](https://dashboard.aspose.cloud/#/apps)

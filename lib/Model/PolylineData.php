@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * PolylineData
  *
  * PHP version 5
  *
@@ -28,19 +28,17 @@
  */
 
 namespace Aspose\Diagram\Cloud\Model;
-
-use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * PolylineData Class Doc Comment
  *
  * @category Class
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class PolylineData extends DrawShapeData 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +47,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'PolylineData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +55,7 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'points' => '\Aspose\Diagram\Cloud\Model\PointF[]'
     ];
 
     /**
@@ -68,9 +64,7 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'points' => null
     ];
 
     /**
@@ -80,7 +74,7 @@ class PointF implements  ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -90,7 +84,7 @@ class PointF implements  ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -100,9 +94,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'points' => 'Points'
     ];
 
     /**
@@ -111,9 +103,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'points' => 'setPoints'
     ];
 
     /**
@@ -122,9 +112,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'points' => 'getPoints'
     ];
 
     /**
@@ -135,7 +123,7 @@ class PointF implements  ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -145,7 +133,7 @@ class PointF implements  ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -155,7 +143,7 @@ class PointF implements  ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -172,19 +160,18 @@ class PointF implements  ArrayAccess
 
     
 
+
     /**
-     * Associative array for storing property values
+     * Constructor
      *
-     * @var mixed[]
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
-    protected $container = [];
-
-
-    public function __construct($arg_x,$arg_y)
+    public function __construct(array $data = null)
     {
+        parent::__construct($data);
 
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['points'] = isset($data['points']) ? $data['points'] : null;
     }
 
     /**
@@ -194,17 +181,8 @@ class PointF implements  ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
-        }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -216,88 +194,34 @@ class PointF implements  ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
-        if ($this->container['is_empty'] === null) {
-            return false;
-        }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets is_empty
+     * Gets points
      *
-     * @return bool
+     * @return \Aspose\Diagram\Cloud\Model\PointF[]
      */
-    public function getIsEmpty()
+    public function getPoints()
     {
-        return $this->container['is_empty'];
+        return $this->container['points'];
     }
 
     /**
-     * Sets is_empty
+     * Sets points
      *
-     * @param bool $is_empty is_empty
+     * @param \Aspose\Diagram\Cloud\Model\PointF[] $points points
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setPoints($points)
     {
-        $this->container['is_empty'] = $is_empty;
-
-        return $this;
-    }
-
-    /**
-     * Gets x
-     *
-     * @return double
-     */
-    public function getX()
-    {
-        return $this->container['x'];
-    }
-
-    /**
-     * Sets x
-     *
-     * @param double $x x
-     *
-     * @return $this
-     */
-    public function setX($x)
-    {
-        $this->container['x'] = $x;
-
-        return $this;
-    }
-
-    /**
-     * Gets y
-     *
-     * @return double
-     */
-    public function getY()
-    {
-        return $this->container['y'];
-    }
-
-    /**
-     * Sets y
-     *
-     * @param double $y y
-     *
-     * @return $this
-     */
-    public function setY($y)
-    {
-        $this->container['y'] = $y;
+        $this->container['points'] = $points;
 
         return $this;
     }

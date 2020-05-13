@@ -1,6 +1,6 @@
 <?php
 /**
- * PointF
+ * ShapeStyleData
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Aspose\Diagram\Cloud\ObjectSerializer;
 
 /**
- * PointF Class Doc Comment
+ * ShapeStyleData Class Doc Comment
  *
  * @category Class
+ * @description Shape style setting
  * @package  Aspose\Diagram\Cloud
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PointF implements  ArrayAccess
+class ShapeStyleData implements  ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class PointF implements  ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PointF';
+    protected static $swaggerModelName = 'ShapeStyleData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +58,7 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'is_empty' => 'bool',
-        'x' => 'double',
-        'y' => 'double'
+        'back_ground_color' => 'string'
     ];
 
     /**
@@ -68,9 +67,7 @@ class PointF implements  ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'is_empty' => null,
-        'x' => 'double',
-        'y' => 'double'
+        'back_ground_color' => null
     ];
 
     /**
@@ -100,9 +97,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_empty' => 'IsEmpty',
-        'x' => 'X',
-        'y' => 'Y'
+        'back_ground_color' => 'BackGroundColor'
     ];
 
     /**
@@ -111,9 +106,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_empty' => 'setIsEmpty',
-        'x' => 'setX',
-        'y' => 'setY'
+        'back_ground_color' => 'setBackGroundColor'
     ];
 
     /**
@@ -122,9 +115,7 @@ class PointF implements  ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_empty' => 'getIsEmpty',
-        'x' => 'getX',
-        'y' => 'getY'
+        'back_ground_color' => 'getBackGroundColor'
     ];
 
     /**
@@ -179,12 +170,15 @@ class PointF implements  ArrayAccess
      */
     protected $container = [];
 
-
-    public function __construct($arg_x,$arg_y)
+    /**
+     * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
+     */
+    public function __construct(array $data = null)
     {
-
-        $this->container['x'] = $arg_x;
-        $this->container['y'] = $arg_y;
+        $this->container['back_ground_color'] = isset($data['back_ground_color']) ? $data['back_ground_color'] : null;
     }
 
     /**
@@ -196,15 +190,6 @@ class PointF implements  ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['is_empty'] === null) {
-            $invalidProperties[] = "'is_empty' can't be null";
-        }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -217,87 +202,30 @@ class PointF implements  ArrayAccess
     public function valid()
     {
 
-        if ($this->container['is_empty'] === null) {
-            return false;
-        }
-        if ($this->container['x'] === null) {
-            return false;
-        }
-        if ($this->container['y'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets is_empty
+     * Gets back_ground_color
      *
-     * @return bool
+     * @return string
      */
-    public function getIsEmpty()
+    public function getBackGroundColor()
     {
-        return $this->container['is_empty'];
+        return $this->container['back_ground_color'];
     }
 
     /**
-     * Sets is_empty
+     * Sets back_ground_color
      *
-     * @param bool $is_empty is_empty
+     * @param string $back_ground_color the background color of shape,like '#000000'
      *
      * @return $this
      */
-    public function setIsEmpty($is_empty)
+    public function setBackGroundColor($back_ground_color)
     {
-        $this->container['is_empty'] = $is_empty;
-
-        return $this;
-    }
-
-    /**
-     * Gets x
-     *
-     * @return double
-     */
-    public function getX()
-    {
-        return $this->container['x'];
-    }
-
-    /**
-     * Sets x
-     *
-     * @param double $x x
-     *
-     * @return $this
-     */
-    public function setX($x)
-    {
-        $this->container['x'] = $x;
-
-        return $this;
-    }
-
-    /**
-     * Gets y
-     *
-     * @return double
-     */
-    public function getY()
-    {
-        return $this->container['y'];
-    }
-
-    /**
-     * Sets y
-     *
-     * @param double $y y
-     *
-     * @return $this
-     */
-    public function setY($y)
-    {
-        $this->container['y'] = $y;
+        $this->container['back_ground_color'] = $back_ground_color;
 
         return $this;
     }
