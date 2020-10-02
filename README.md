@@ -22,7 +22,7 @@ Added support to:
 - Add new empty page
 - Get pages info
 
-For the detailed notes, please visit [Aspose.Diagram Cloud 20.3 Release Notes](https://docs.aspose.cloud/display/diagramcloud/Aspose.Diagram+Cloud+20.3+Release+Notes).
+For the detailed notes, please visit [Aspose.Diagram Cloud 20.3 Release Notes](https://docs.aspose.cloud/diagram/aspose-diagram-cloud-20-3-release-notes/).
 
 ## Read & Write Visio Formats
 
@@ -41,7 +41,7 @@ For the detailed notes, please visit [Aspose.Diagram Cloud 20.3 Release Notes](h
 
 ## How to use the SDK
 
-The complete source code is available at the [GitHub Repository](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php). You can either directly use it in your project via source code or get [Packagist distribution](https://packagist.org/packages/aspose/diagram-sdk-php) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/diagramcloud/Home).
+The complete source code is available at the [GitHub Repository](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php). You can either directly use it in your project via source code or get [Packagist distribution](https://packagist.org/packages/aspose/diagram-sdk-php) (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/diagram/).
 
 ## Prerequisites
 
@@ -104,4 +104,4 @@ $diagramFile = new DiagramFile();
 $diagramFile->saveFileAsAnotherFormat();
 ```
 
-[Product Page](https://products.aspose.cloud/diagram/php) | [Documentation](https://docs.aspose.cloud/display/diagramcloud/Home) | [Live Demo](https://products.aspose.app/diagram/family) | [API Reference](https://apireference.aspose.cloud/diagram/) | [Code Samples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php) | [Blog](https://blog.aspose.cloud/category/diagram/) | [Free Support](https://forum.aspose.cloud/c/diagram) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
+[Product Page](https://products.aspose.cloud/diagram/php) | [Documentation](https://docs.aspose.cloud/diagram/) | [Live Demo](https://products.aspose.app/diagram/family) | [API Reference](https://apireference.aspose.cloud/diagram/) | [Code Samples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php) | [Blog](https://blog.aspose.cloud/category/diagram/) | [Free Support](https://forum.aspose.cloud/c/diagram) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
