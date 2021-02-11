@@ -70,45 +70,15 @@ require_once('vendor/autoload.php');
 
 Please, look at [Examples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php/blob/master/EXAMPLES.md) document for basic usage or use the [Examples](https://github.com/aspose-diagram-cloud/aspose-diagram-cloud-php/blob/master/Examples) folder for more sophisticated scenarios.
 
-## Use PHP Code to Convert VDX Diagram to other Formats
+
+## Create New VDX Diagram File in PHP
 
 ```php
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once(__DIR__ . '/Utils.php');
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
+	$api = new DiagramApi("client_credentials", "MY_CLIENT_ID", "MY_CLIENT_SECRET");
 
-use Aspose\Diagram\Cloud\Api\DiagramFileApi;
-use \Aspose\Diagram\Cloud\Configuration;
-use \Aspose\Diagram\Cloud\Model;
-use \Aspose\Diagram\Cloud\ObjectSerializer;
-
-class DiagramFile {
-
-    public $diagramApi;
-
-    public function __construct() {
-        $this->diagramApi = new DiagramFileApi();
-        $config = $this->diagramApi->getConfig();
-        $token = Utils::getAccessToken();
-        $config ->setAccessToken($token);
-    }
-
-    public function saveFileAsAnotherFormat() {
-        $fileName ='file_get_1.vdx';
-        $isOverwrite = 'true';
-        $folder= "";
-        $format = new \Aspose\Diagram\Cloud\Model\FileFormatRequest();
-        $format->setFormat("pdf");
-        $newfilename = "file_saveas_php.pdf";
-        $result = $this->diagramApi->DiagramFilePostSaveAs($fileName, $format, $newfilename, $folder, $isOverwrite);
-        $json = json_decode($result);
-        print_r ( $json );
-    }
-}
-
-$diagramFile = new DiagramFile();
-$diagramFile->saveFileAsAnotherFormat();
+	$result = $api->createNew("sample.vdx");
 ```
-
 ## Aspose.Diagram Cloud SDKs in Popular Languages
 
 | .NET | Java | PHP | Python | Ruby | Node.js | Android | Perl | Swift |
