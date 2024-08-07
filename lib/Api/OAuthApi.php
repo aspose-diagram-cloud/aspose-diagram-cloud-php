@@ -64,7 +64,9 @@ class OAuthApi
      */
     public function __construct()
         {
-        $this->client =  new Client();
+            $this->client = new Client([
+                'verify' => false
+            ]);
         $this->config =  new Configuration();
         $this->headerSelector =  new HeaderSelector();
     }
@@ -343,7 +345,7 @@ class OAuthApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -361,7 +363,7 @@ class OAuthApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

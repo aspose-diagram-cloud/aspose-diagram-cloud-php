@@ -38,6 +38,7 @@ use Aspose\Diagram\Cloud\Model\SVGSaveOptions;
 use Aspose\Diagram\Cloud\Model\SWFSaveOptions;
 use Aspose\Diagram\Cloud\Model\SaveAsResponse;
 use Aspose\Diagram\Cloud\Model\XPSSaveOptions;
+use PHPUnit\Framework\TestCase;
 
 require_once('TestBase.php');
 
@@ -49,37 +50,8 @@ require_once('TestBase.php');
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PageTest extends \PHPUnit_Framework_TestCase
+class PageTest extends TestCase
 {
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass()
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp()
-    {
-
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown()
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass()
-    {
-    }
-
     static $fileName="pageTest.vsdx";
 
     /**

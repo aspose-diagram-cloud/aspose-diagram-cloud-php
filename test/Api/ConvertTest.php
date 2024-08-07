@@ -37,6 +37,7 @@ use Aspose\Diagram\Cloud\Model\SVGSaveOptions;
 use Aspose\Diagram\Cloud\Model\SWFSaveOptions;
 use Aspose\Diagram\Cloud\Model\SaveAsResponse;
 use Aspose\Diagram\Cloud\Model\XPSSaveOptions;
+use PHPUnit\Framework\TestCase;
 
 require_once('TestBase.php');
 
@@ -48,38 +49,8 @@ require_once('TestBase.php');
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConvertTest extends \PHPUnit_Framework_TestCase
+class ConvertTest extends TestCase
 {
-
-
-    /**
-     * Setup before running any test cases
-     */
-    public static function setUpBeforeClass()
-    {
-    }
-
-    /**
-     * Setup before running each test case
-     */
-    public function setUp()
-    {
-
-    }
-
-    /**
-     * Clean up after running each test case
-     */
-    public function tearDown()
-    {
-    }
-
-    /**
-     * Clean up after running all test cases
-     */
-    public static function tearDownAfterClass()
-    {
-    }
 
     /**
      * Test case for convertDocument
@@ -115,6 +86,7 @@ class ConvertTest extends \PHPUnit_Framework_TestCase
     public  function  testUploadFile(){
         $storageApi = TestBase::getStorageApi();
         $localFilePath = realpath(__DIR__ . '/../..') . '\testData\FileUpload.vdx';
+        echo "File path: " . $localFilePath . PHP_EOL;
         $result =$storageApi->uploadFile(TestBase::$storageTestFOLDER,$localFilePath);
         $json = json_decode($result);
         $this->assertNotEmpty($json->Uploaded);
